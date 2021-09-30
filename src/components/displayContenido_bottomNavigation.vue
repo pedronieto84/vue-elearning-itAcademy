@@ -1,7 +1,6 @@
 <template>
-    <div class="bottomNavigation bg-secondary h-100">Prueba
-
-
+    <div class="bottomNavigation bg-secondary">Prueba
+    
     </div>
 </template>
 
