@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <LeftNavigation :topics="topics" @show="show" />
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -32,11 +31,21 @@
 </template>
 
 <script>
-import LeftNavigation from '../components/LeftNavigation.vue'
 export default {
   name: 'HelloWorld',
-  component: {
-    LeftNavigation
+  data() {
+    return {
+      topics: [
+        {topicId: 0, title: 'Zero'},
+        {topicId: 1, title: 'U'},
+        {topicId: 2, title: 'Dos'},
+        {topicId: 3, title: 'Tres'},
+        {topicId: 4, title: 'Quatre'},
+        {topicId: 5, title: 'Cinc'},
+        {topicId: 6, title: 'Sis'}
+      ],
+      actual: 0
+    }
   },
   props: {
     msg: String

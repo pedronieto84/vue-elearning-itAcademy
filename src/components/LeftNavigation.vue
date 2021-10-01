@@ -1,20 +1,24 @@
+<!-- La sintaxis per incorporar el component a la principal seria tal que:
+        <LeftNavigation :topics="topics" @actual="actual = $event" />
+    Rebent una llista de topics i emetent el topic que que es mostra actualment
+ -->
+
 <template>
-    <div>
-        <h1>Prova</h1>
-        <div v-for="(topic, index) in topics" :key="index">
-            <div :class="status()" @click="switchStatus">{{index}}. {{topic.title}}</div>
-        </div>
+    <div v-for="(topic, index) in topics" :key="index" class="text-light">
+        <div :class="status(index)" @click="switchStatus(index)">{{topic.topicId}}. {{topic.title}}</div>
     </div>
 </template>
+
 <script>
 export default {
     data(){
         return {
-            actual: 0,
+            actual,
             visit: []
         }
     },
     props:['topics'],
+    emits:['actual'],
     methods:{
         status(index) {
             let status;
@@ -26,16 +30,15 @@ export default {
         switchStatus(index) {
             this.actual = index;
             this.visit[index]='visited';
-            this.$emit('show', this.actual);
+            console.log('Actual: '+this.actual)
+            this.$emit('actual', this.actual);
         }
     },
-    /*computed:{
-        computed1(){
-            return
-        }
-    },*/
     mounted() {
         this.switchStatus(0);
+    },
+    update() {
+        
     }
 }
 </script>
