@@ -3,12 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       Vue E-Learning With Bootstrap!
-      <button
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
+      <button type="button" class="close" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -23,6 +18,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "App",
+
   components: {
     HelloWorld,
   },
