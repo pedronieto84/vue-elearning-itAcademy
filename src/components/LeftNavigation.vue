@@ -13,7 +13,7 @@
 export default {
     data(){
         return {
-            actual,
+            actual: 0,
             visit: []
         }
     },
