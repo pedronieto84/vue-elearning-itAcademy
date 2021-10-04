@@ -1,8 +1,3 @@
-<!-- La sintaxis per incorporar el component a la principal seria tal que:
-        <LeftNavigation :topics="topics" @actual="actual = $event" />
-    Rebent una llista de topics i emetent el topic que que es mostra actualment
- -->
-
 <template>
   <nav class=" navbar bg-primary text-light ">
     E-learning Course
@@ -50,7 +45,6 @@ export default {
       return status;
     },
     totalTopics() {
-      console.log("Holi" + this.topics.length);
       this.totaltopics = this.topics.length;
     },
     returnToMainMenu() {
