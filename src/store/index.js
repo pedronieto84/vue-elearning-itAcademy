@@ -1,60 +1,42 @@
 import { createStore } from 'vuex';
-import axios from 'axios';
 
 export default createStore({
     state: {
-        baseURL: 'https://us-central1-asamblea-27a8d.cloudfunctions.net/',
-        courses: [],
-        overlay: false,
-        course: {
-            courseId: '',
-            title: '',
-            description: '',
-            imagUrl: '',
-            route: '',
-            modules: []
-        },
-        module: {
-            moduleId: '',
-            title: '',
-            description: '',
-            imageUrl: '',
-            route: '',
-            topics: []
-        },
-        topic: {
-            topicId: '',
-            title: '',
-            cardType: '',
-            cardId: '',
-            position: '',
-            moduleId: '',
-        }
+        pointsArray: [1,2,3,4,5],
+        currentPointFather: Number,
+        topics: [
+            {topicId: 0, title: 'Zero'},
+            {topicId: 1, title: 'U'},
+            {topicId: 2, title: 'Dos'},
+            {topicId: 3, title: 'Tres'},
+            {topicId: 4, title: 'Quatre'},
+            {topicId: 5, title: 'Cinc'},
+            {topicId: 6, title: 'Sis'}
+        ],
+        actual: 0
     },
     getters: {
-        getCourse(state, id) {
-            return state.courses[id];
+        getActual(state) {
+            return state.actual;
         },
-        getModules(state) {
-            return state.course.modules;
+        getTopics(state) {
+            return state.topics;
         },
-        getTopics(state, modul) {
-            return state.course.modules[modul].topics;
+        getPointsArray(state) {
+            return state.pointsArray;
         },
+        getCurrentPointFather(state) {
+            return state.currentPointFather;
+        }
     },
     mutations: {
-        SET_COURSES(state, payload) {
-            state.courses = payload;
-        },
-        SET_OVERLAY(state, payload) {
-            state.overlay = payload;
-        },
+        updateActual(state, nouActual){
+            state.actual = nouActual;
+        }
     },
     actions: {
-        async getCourses({ state, commit }) {
-            const courses = await axios.get(state.baseURL + 'getCourses');
-            commit('SET_COURSES', courses.data);
-            commit('SET_OVERLAY', false);
-          },
+        updateActual({ commit }, actual) {
+            commit('updateActual', actual);
+        }
     }
 });
