@@ -1,19 +1,21 @@
 <template>
-  <TopNavigationTest></TopNavigationTest>
-  <div class="d-none d-lg-block d-xl-block">
-    <div class="row">
-      <div class="col-2">
-        <LeftNavigationTest></LeftNavigationTest>
-      </div>
-      <div class="col-10">
-        <ContentTest></ContentTest>
+  <div>
+    <TopNavigationTest></TopNavigationTest>
+    <div class="d-none d-lg-block d-xl-block">
+      <div class="row">
+        <div class="col-2">
+          <LeftNavigationTest></LeftNavigationTest>
+        </div>
+        <div class="col-10">
+          <ContentTest></ContentTest>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="d-lg-none d-xl-none">
-    <div class="col-12">
-      <LeftNavigationTest></LeftNavigationTest>
-      <ContentTest></ContentTest>
+    <div class="d-lg-none d-xl-none">
+      <div class="col-12">
+        <LeftNavigationTest></LeftNavigationTest>
+        <ContentTest></ContentTest>
+      </div>
     </div>
   </div>
 </template>

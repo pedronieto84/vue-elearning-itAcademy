@@ -18,16 +18,22 @@
       </div>
     </div>
     <h1 class="mt-2">Content</h1>
+    <div>
+      <!-- This div is reserved to place a v-if and show the appropiate card     -->
+      <CardVideo />
+    </div>
   </div>
 </template>
 
 <script>
 import BottomNavigationTest from "@/components/bottomNavigationTest.vue";
+import CardVideo from "@/components/CardVideo.vue";
 
 export default {
   name: "contentTest",
   components: {
     BottomNavigationTest,
+    CardVideo,
   },
 };
 </script>
