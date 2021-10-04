@@ -1,7 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <bottomNavigation :points="pointsArray" @currentPointEmit="currentPointFather = $event"></bottomNavigation>
+
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Vue E-Learning With Bootstrap!
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+  </div>
 </template>
 
 <script>
@@ -13,6 +21,7 @@ import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue
 
 export default {
   name: "App",
+
   components: {
     HelloWorld,
     bottomNavigation
