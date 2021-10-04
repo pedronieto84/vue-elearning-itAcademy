@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <img alt="Vue logo" src="./assets/logo.png" /><br>
     <button class="btn btn-warning" style="text-decoration: none"><router-link to="/module">MODUL</router-link></button>
@@ -13,17 +14,27 @@
 </template>
 
 <script>
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import HelloWorld from "./components/HelloWorld.vue";
+//import "bootstrap";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import HelloWorld from './components/HelloWorld.vue'
+import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
+
 
 export default {
   name: "App",
 
   components: {
     HelloWorld,
+    bottomNavigation
   },
-};
+  data(){
+    return{
+      pointsArray: [1,2,3,4,5],
+      currentPointFather: Number, 
+    }
+  },
+}
+
 </script>
 
 <style>
