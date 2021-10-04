@@ -1,17 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Vue E-Learning With Bootstrap!
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+};
 </script>
 
 <style>

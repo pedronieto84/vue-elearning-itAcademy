@@ -1,0 +1,42 @@
+<template>
+  <TopNavigationTest></TopNavigationTest>
+  <div class="d-none d-lg-block d-xl-block">
+    <div class="row">
+      <div class="col-2">
+        <LeftNavigationTest></LeftNavigationTest>
+      </div>
+      <div class="col-10">
+        <ContentTest></ContentTest>
+      </div>
+    </div>
+  </div>
+  <div class="d-lg-none d-xl-none">
+    <div class="col-12">
+      <LeftNavigationTest></LeftNavigationTest>
+      <ContentTest></ContentTest>
+    </div>
+  </div>
+</template>
+
+<script>
+import TopNavigationTest from "@/components/topNavigationTest.vue";
+import LeftNavigationTest from "@/components/leftNavigationTest.vue";
+import ContentTest from "@/components/contentTest.vue";
+
+export default {
+  name: "App",
+  components: {
+    TopNavigationTest,
+    LeftNavigationTest,
+    ContentTest,
+  },
+};
+</script>
+
+<style>
+html,
+body {
+  height: calc(100vh - 60px);
+  width: calc(100vw - 30px);
+}
+</style>

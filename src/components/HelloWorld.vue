@@ -33,6 +33,20 @@
 <script>
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      topics: [
+        {topicId: 0, title: 'Zero'},
+        {topicId: 1, title: 'U'},
+        {topicId: 2, title: 'Dos'},
+        {topicId: 3, title: 'Tres'},
+        {topicId: 4, title: 'Quatre'},
+        {topicId: 5, title: 'Cinc'},
+        {topicId: 6, title: 'Sis'}
+      ],
+      actual: 0
+    }
+  },
   props: {
     msg: String
   }
