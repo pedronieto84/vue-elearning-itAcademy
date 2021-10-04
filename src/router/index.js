@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../App.vue';
+import Module from '../views/DisplayContenido.vue';
 
 const routes = [
   {
@@ -10,7 +11,8 @@ const routes = [
   {
     path: '/module',
     name: 'Module',
-    component: () => import('../views/modulePage.vue')
+    component: Module
+    //component: () => import('../views/modulePage.vue')
   }
 ];
 
