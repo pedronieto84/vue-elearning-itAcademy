@@ -19,8 +19,9 @@
     </div>
     <h1 class="mt-2">Content</h1>
     <div>
+      Holi Diver
       <!-- This div is reserved to place a v-if and show the appropiate card     -->
-      <CardVideo />
+      <CardVideo video-id="79XQBAouHjU" />
     </div>
   </div>
 </template>

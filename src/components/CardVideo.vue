@@ -1,42 +1,29 @@
-<template>
-  <div></div>
+<template id="youtube-player">
+  <div class="video-container">
+    <div class="video-placeholder">
+      <div class="video-placeholder-cover">Placeholder</div>
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      //   totaltopics: 0,
-      //   topics: ["uno", "dos", "tres"],
-      //   actual: 44,
-      //   visit: [],
-    };
-  },
-  // props: ["topics", "actual"],
+<script></script>
 
-  methods: {
-    // actualTopic(index) {
-    //   let status;
-    //   if (this.actual == index) {
-    //     status = "bg-success";
-    //   } else if (this.visit[index] == "visited") {
-    //     status = "bg-primary";
-    //   } else {
-    //     status = "bg-secondary";
-    //   }
-    //   return status;
-    // },
-    // totalTopics() {
-    //   this.totaltopics = this.topics.length;
-    // },
-    // returnToMainMenu() {
-    //   alert("Returning to main menu!");
-    // },
-  },
-  //   },
-  beforeMount() {
-    // this.totalTopics();
-  },
-  //   update() {},
-};
-</script>
+<style>
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
