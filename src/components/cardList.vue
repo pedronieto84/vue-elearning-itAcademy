@@ -26,7 +26,7 @@ export default {
     
     data() {
         return {
-            lists: ["Fdklsjfadlkfjdjfajdjfl jdhfkashkjfdah jfkdfjhaljknfjkdkfld jkdjfhs jkdhfda iqowqu ioqww` jdkhkf jdhaf qioqw m iwodqoie jdskha laos sadoa iouireor dsaidjld dafjdkahfjahfdafkdah", "kaskjdajsh" , "sjkhasda" , "sjhdka" , "Sajhkdsdka jdskhadhasj hoa que tal como vamos, bien eso espero."],
+            lists: ["Fdklsjfadlkfjdjfajdjfl jdhfkashkjfdah jfkdfjhaljknfjkdkfld jkdjfhs jkdhfda iqowqu ioqww` jdkhkf jdhaf qioqw m iwodqoie jdskha laos sadoa iouireor dsaidjld dafjdkahfjahfdafkdah", "kaskjdajsh" , "sjkhasda" , "sjhdka" , "Sajhkdsdka jdskhadhasj hoa que tal ccvfs fsgsg gdsgsf sgsf ro."],
             completeMessage: false,
         }
     },
@@ -37,11 +37,11 @@ export default {
             if(window.innerWidth < 720){
                 console.log("pantalla pequeña")
                 return true
-                //return this.item.length > 40 ? this.item.slice(0,40)+"..." : this.item
+                
             }else{
                 console.log("pantalla grande")
                 return false
-                //return this.item.length > 150 ? this.item.slice(0,150)+"..." : this.item
+               
             }
         },
 
@@ -52,9 +52,6 @@ export default {
 </script>
 
 <style scoped>
-/*
-.list-group-item{
-    cursor: pointer;
-}*/
+
 
 </style>
