@@ -2,26 +2,29 @@
   <div>
     <h1 class="mt-2">Content {{actual}}</h1>
     <Snippet />
+    <cardVideo />
   </div>
 </template>
 
 <script>
 import Snippet from '../components/CodeSnippet.vue'
-
+import cardVideo from "./CardVideo.vue";
 export default {
-  name: "contentTest",
+  name: "mainContent",
   components: {
-    Snippet
+    Snippet,
+    cardVideo
   },
   data() {
     return {
       
     }
   },
+
   computed: {
     actual: function() {
       return this.$store.getters.getActual;
     },
-  }
+  },
 };
 </script>
