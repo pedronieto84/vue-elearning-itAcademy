@@ -1,46 +1,21 @@
 <template>
-  <div>
-    <TopNavigationTest></TopNavigationTest>
-    <div class="d-none d-lg-block d-xl-block">
-      <div class="row">
-        <div class="col-2">
-          <LeftNavigationTest></LeftNavigationTest>
-        </div>
-        <div class="col-10">
-          <contentTest></contentTest>
-        </div>
-      </div>
-    </div>
-    <div class="d-lg-none d-xl-none">
-      <div class="col-12">
-        <LeftNavigationTest></LeftNavigationTest>
-        <contentTest></contentTest>
-      </div>
-    </div>
-  </div>
+  <router-view ></router-view>
 </template>
 
 <script>
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import TopNavigationTest from "@/components/topNavigationTest.vue";
-import LeftNavigationTest from "@/components/leftNavigationTest.vue";
-import contentTest from "@/components/contentTest.vue";
 
 export default {
   name: "App",
-  components: {
-    TopNavigationTest,
-    LeftNavigationTest,
-    contentTest,
-  },
-};
+}
+
 </script>
 
 <style>
-html,
-body {
-  height: calc(100vh - 60px);
-  width: calc(100vw - 30px);
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>

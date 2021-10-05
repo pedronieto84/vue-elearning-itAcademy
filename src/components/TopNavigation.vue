@@ -24,14 +24,16 @@ export default {
   data() {
     return {
       totaltopics: 0,
-      topics: ["uno", "dos", "tres"],
-      actual: 44,
-
-      //   visit: [],
     };
   },
-  // props: ["topics", "actual"],
-
+  computed: {
+    actual: function() {
+      return this.$store.getters.getActual;
+    },
+    topics: function() {
+      return this.$store.getters.getTopics;
+    }
+  },
   methods: {
     actualTopic(index) {
       let status;
@@ -45,16 +47,14 @@ export default {
       return status;
     },
     totalTopics() {
-      this.totaltopics = this.topics.length;
+      this.totaltopics = this.topics.length-1;
     },
     returnToMainMenu() {
       alert("Returning to main menu!");
     },
   },
-  //   },
   beforeMount() {
     this.totalTopics();
-  },
-  //   update() {},
+  }
 };
 </script>
