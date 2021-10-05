@@ -1,29 +1,32 @@
-<template id="youtube-player">
-  <div class="video-container">
-    <div class="video-placeholder">
-      <div class="video-placeholder-cover">Placeholder</div>
-    </div>
+<template>
+  <div>
+    <YouTube
+      class="mx-auto"
+      src="https://www.youtube.com/watch?v=ubL0PpKmGYQ"
+      @ready="onReady"
+      ref="youtube"
+      :vars="playervars"
+    />
   </div>
 </template>
 
-<script></script>
+<script>
+import { defineComponent } from "vue";
+// npm vue-3-youtube plugin documentation https://github.com/NomNes/vue3-youtube
+import YouTube from "vue3-youtube";
 
-<style>
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>
+export default defineComponent({
+  name: "cardVideo",
+  data() {
+    return {
+      playervars: { autoplay: 0 },
+    };
+  },
+  components: { YouTube },
+  methods: {
+    onReady() {
+      this.$refs.youtube.playVideo();
+    },
+  },
+});
+</script>
