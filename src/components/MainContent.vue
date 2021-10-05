@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div class="col-12">
-      <div class="d-lg-none d-xl-none">
-        <BottomNavigationTest></BottomNavigationTest>
-      </div>
-    </div>
     <div class="progress mt-2">
       <div
         class="progress-bar"
@@ -17,17 +12,28 @@
         25%
       </div>
     </div>
-    <h1 class="mt-2">Content</h1>
+    <h1 class="mt-2">Content {{actual}}</h1>
   </div>
 </template>
 
 <script>
-import BottomNavigationTest from "@/components/bottomNavigationTest.vue";
-
 export default {
   name: "contentTest",
-  components: {
-    BottomNavigationTest,
+  data() {
+    return {
+      
+    }
   },
+  computed: {
+    actual: function() {
+      return this.$store.getters.getActual;
+    },
+  },
+  beforeMount() {
+    this.actual = this.$store.getters.getActual;
+  },
+  update() {
+    this.actual = this.$store.getters.getActual;
+  }
 };
 </script>

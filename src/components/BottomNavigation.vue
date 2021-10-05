@@ -16,14 +16,14 @@
 <script>
 export default {
   name: 'bottomNavigation',
-  props: {
-    points:  {
-      type: Array,
-    }
-  },
   data(){
     return{
       currentPoint: 0
+    }
+  },
+  computed: {
+    points: function() {
+      return this.$store.getters.getPointsArray;
     }
   },
   methods: {
