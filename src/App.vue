@@ -9,6 +9,8 @@
       </button>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App" />
+
+    <cardList></cardList>
   </div>
 </template>
 
@@ -16,15 +18,14 @@
 //import "bootstrap";
 //import "bootstrap/dist/css/bootstrap.min.css";
 import HelloWorld from './components/HelloWorld.vue'
-import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
-
+import cardList from './components/cardList.vue'
 
 export default {
   name: "App",
 
   components: {
     HelloWorld,
-    bottomNavigation
+    cardList
   },
   data(){
     return{
