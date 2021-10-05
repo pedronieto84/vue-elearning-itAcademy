@@ -1,6 +1,8 @@
 <template>
-    <div v-for="(topic, index) in topics" :key="index" class="text-light">
-        <div :class="status(index)" @click="switchStatus(index)">{{topic.topicId}}. {{topic.title}}</div>
+    <div style="overflow-y: auto; overflow-x: hidden; height: 80vh">
+        <div v-for="(topic, index) in topics" :key="index" class="text-light">
+            <div :class="status(index)" @click="switchStatus(index)">{{topic.topicId}}. {{topic.title}}</div>
+        </div>
     </div>
 </template>
 
