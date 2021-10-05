@@ -47,7 +47,7 @@ export default {
       return status;
     },
     totalTopics() {
-      this.totaltopics = this.topics.length;
+      this.totaltopics = this.topics.length-1;
     },
     returnToMainMenu() {
       alert("Returning to main menu!");

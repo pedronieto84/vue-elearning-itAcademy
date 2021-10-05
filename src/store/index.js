@@ -2,16 +2,14 @@ import { createStore } from 'vuex';
 
 export default createStore({
     state: {
-        pointsArray: [1,2,3,4,5],
-        currentPointFather: Number,
         topics: [
-            {topicId: 0, title: 'Zero'},
-            {topicId: 1, title: 'U'},
-            {topicId: 2, title: 'Dos'},
-            {topicId: 3, title: 'Tres'},
-            {topicId: 4, title: 'Quatre'},
-            {topicId: 5, title: 'Cinc'},
-            {topicId: 6, title: 'Sis'}
+            {topicId: 1, title: 'One'},
+            {topicId: 2, title: 'Two'},
+            {topicId: 3, title: 'Three'},
+            {topicId: 4, title: 'Four'},
+            {topicId: 5, title: 'Five'},
+            {topicId: 6, title: 'Six'},
+            {topicId: 7, title: 'Seven'}
         ],
         actual: 0
     },
@@ -21,12 +19,6 @@ export default createStore({
         },
         getTopics(state) {
             return state.topics;
-        },
-        getPointsArray(state) {
-            return state.pointsArray;
-        },
-        getCurrentPointFather(state) {
-            return state.currentPointFather;
         }
     },
     mutations: {
