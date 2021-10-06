@@ -1,11 +1,11 @@
 <template>
-  <router-view ></router-view>
+  <CardTest />
 </template>
 
 <script>
 //import "bootstrap";
 //import "bootstrap/dist/css/bootstrap.min.css";
-import HelloWorld from './components/HelloWorld.vue'
+import CardTest from './components/cardTest.vue'
 //import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
 
 
@@ -13,7 +13,7 @@ export default {
   name: "App",
 
   components: {
-    HelloWorld,
+    CardTest,
     //bottomNavigation
   },
   data(){

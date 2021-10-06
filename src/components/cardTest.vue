@@ -16,81 +16,30 @@
     <div class="mt-2 col-12" role="tabpanel">
       <!-- List of possible answers -->
       <div class="list-group" id="myList" role="tablist">
+      <div v-for="(item, index) in items.itemsTest"
+      :key="item"
+      >
+      <a
+      @click="addResults(index)"
+      class="list-group-item list-group-item-action border border-secondary rounded-lg
+"
+      :class=" ( this.showResults  && ( this.clickedHere === index || item.right ) ) ? (  this.checkWichOneIsRight() === index ? 'bg-success' : 'bg-danger'  )  : ''  "
+      
+     
+   
+
+ 
+  data-toggle="list"
+  href="#answer1"
+  role="tab">{{ items.itemsTest[index].text }}</a>
+
+<br />
+
+      </div>
         <br />
-        <a
-          class="
-            list-group-item list-group-item-action
-            border border-secondary
-            rounded-lg
-          "
-          :class="{
-            'bg-danger text-white': !items.itemsTest[0].right,
-            'bg-success text-white': items.itemsTest[0].right,
-          }"
-          data-toggle="list"
-          href="#answer1"
-          role="tab"
-          >{{ items.itemsTest[0].text }}</a
-        >
-        <!--
-        <div class="text-white p-3" :class="{'bg-info' : color}">
-          Lorem ipsum...
-        </div>
-        <button class="btn btn-primary" @click="color = color">
-          Change
-        </button> -->
-        <br />
-        <a
-          class="
-            list-group-item list-group-item-action
-            border border-secondary
-            rounded-lg
-          "
-          :class="{
-            'bg-danger': !items.itemsTest[1].right,
-            'bg-success': items.itemsTest[1].right,
-          }"
-          data-toggle="list"
-          href="#answer2"
-          role="tab"
-          >{{ items.itemsTest[1].text }}</a
-        >
-        <br />
-        <a
-          class="
-            list-group-item list-group-item-action
-            border border-secondary
-            rounded-lg
-          "
-          data-toggle="list"
-          href="#answer3"
-          role="tab"
-          :class="{
-            'bg-danger': !items.itemsTest[2].right,
-            'bg-success': items.itemsTest[2].right,
-          }"
-          >{{ items.itemsTest[2].text }}</a
-        >
-        <br />
-        <a
-          class="
-            list-group-item list-group-item-action
-            border border-secondary
-            rounded-lg
-          "
-          :class="{
-            'bg-danger': !items.itemsTest[3].right,
-            'bg-success': items.itemsTest[3].right,
-          }"
-          data-toggle="list"
-          href="#answer4"
-          role="tab"
-          >{{ items.itemsTest[3].text }}</a
-        >
-        <!--
-        <a
-        @click="bgColor(3)"
-          :id="`${3}`"></a> -->
+     
+    
+       
         <br />
       </div>
 
@@ -177,6 +126,10 @@ export default {
       question: "Com puc declarar una variable en JavaScript?",
       title: "titleProva",
       subtitle: "subtitleProva",
+      classList:'list-group-item list-group-item-action border border-secondary rounded-lg '
+,
+     showResults: false,
+     clickedHere: null,
       items: {
         itemsTest: [
           {
@@ -200,6 +153,40 @@ export default {
     };
   },
   methods: {
+
+    addResults(index){
+      this.showResults = true;
+      this.clickedHere = index;
+/*
+ const isThisOneTheRightOne = index === this.checkWichOneIsRight()
+      let classesToAdd = '';
+      
+
+      if(isThisOneTheRightOne){
+          classesToAdd = 'bg-success text-white'
+      }else{
+        classesToAdd = 'bg-danger text-white'
+      }
+       */
+     // this.classList += classesToAdd
+     // console.log('class list', this.classList)
+
+    },
+
+
+    checkWichOneIsRight(){
+      return this.items.itemsTest.findIndex((item)=>{
+        return item.right
+      })
+
+    },
+
+    returnRightClassDependingOnQuestion(){
+
+     
+     
+
+    },
     bgColor(num) {
       //alert(this.items.itemsTest[num].right);
       /*
