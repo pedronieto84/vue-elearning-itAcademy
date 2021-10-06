@@ -1,42 +1,61 @@
 <template>
-  <TopNavigationTest></TopNavigationTest>
-  <div class="d-none d-lg-block d-xl-block">
-    <div class="row">
-      <div class="col-2">
-        <LeftNavigationTest></LeftNavigationTest>
+  <div>
+    <Top id="top-row" />
+    <div class="d-none d-lg-block d-xl-block">
+      <div id="main-row" class="row">
+        <div class="col-2 bg-dark">
+          <Left />
+        </div>
+        <div class="col-10">
+          <Main />
+        </div>
       </div>
-      <div class="col-10">
-        <ContentTest></ContentTest>
+      <Bottom id="bottom-row" />
+    </div>
+    <div class="d-lg-none d-xl-none">
+      <div class="col-12">
+        <Left />
+        <Main />
       </div>
     </div>
-  </div>
-  <div class="d-lg-none d-xl-none">
-    <div class="col-12">
-      <LeftNavigationTest></LeftNavigationTest>
-      <ContentTest></ContentTest>
-    </div>
+    
   </div>
 </template>
 
 <script>
-import TopNavigationTest from "@/components/topNavigationTest.vue";
-import LeftNavigationTest from "@/components/leftNavigationTest.vue";
-import ContentTest from "@/components/contentTest.vue";
+import Top from "../components/TopNavigation.vue";
+import Left from "../components/LeftNavigation.vue";
+import Main from "../components/MainContent.vue";
+import Bottom from "../components/BottomNavigation.vue"
 
 export default {
   name: "App",
   components: {
-    TopNavigationTest,
-    LeftNavigationTest,
-    ContentTest,
+    Top,
+    Left,
+    Main,
+    Bottom
+  },
+  data(){
+    return{
+    }
   },
 };
 </script>
 
 <style>
-html,
+/*html,
 body {
   height: calc(100vh - 60px);
   width: calc(100vw - 30px);
+}*/
+#top-row {
+  height: 10vh;
+}
+#main-row {
+  height: 80vh;
+}
+#bottom-row {
+  height: 10vh;
 }
 </style>

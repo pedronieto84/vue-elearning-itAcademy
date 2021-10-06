@@ -12,6 +12,8 @@
 
     <cardList :listArray ="listPadre" ></cardList>
   </div>
+  <CardTest />
+
 </template>
 
 <script>
@@ -20,12 +22,20 @@
 import HelloWorld from './components/HelloWorld.vue'
 import cardList from './components/cardList.vue'
 
+import CardTest from './components/cardTest.vue'
+//import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
+
+
+
 export default {
   name: "App",
 
   components: {
     HelloWorld,
     cardList
+    CardTest,
+    //bottomNavigation
+
   },
   data(){
     return{
@@ -49,6 +59,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
