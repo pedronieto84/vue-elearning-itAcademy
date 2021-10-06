@@ -935,6 +935,14 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@highlightjs/vue-plugin@^2.0.1":
+  "integrity" "sha512-6pmLh+VSvswavU7RB0BnWLp/9ITX6UYeVmR1gkFKQ4yx777lOCsGZOKc+1rswBDlD+bWb0xXVig85A7GEU2Vsg=="
+  "resolved" "https://registry.npmjs.org/@highlightjs/vue-plugin/-/vue-plugin-2.0.1.tgz"
+  "version" "2.0.1"
+  dependencies:
+    "highlight.js" "^11.0.1"
+    "vue" "^3"
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   "integrity" "sha512-zN69TnSr0viRSU6cEDIcuPcP67QcpQ6uHACg58FiN9PDrU6SLyGW3MR4tiISbYxy1kDWAVPwD+XwQTWE5cigAA=="
   "resolved" "https://registry.npmjs.org/@intervolga/optimize-cssnano-plugin/-/optimize-cssnano-plugin-1.0.6.tgz"
@@ -1135,6 +1143,11 @@
     "@types/webpack-sources" "*"
     "anymatch" "^3.0.0"
     "source-map" "^0.6.0"
+
+"@types/youtube@^0.0.39":
+  "integrity" "sha512-naVjyTZT/CoNwEQW3+mf9E/x6sgB7QIPbRDtVlPUpHlmuQTk+j6gQBy0T5CRkV8oC0GYQjMgfr3VdueTSVLTjw=="
+  "resolved" "https://registry.npmjs.org/@types/youtube/-/youtube-0.0.39.tgz"
+  "version" "0.0.39"
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.2.1":
   "integrity" "sha512-QOi5OW45e2R20VygMSNhyQHvpdUwQZqGPc748JLGCYEy+yp8fNFNdbNIGAgZmi9e+2JHPd6i6idRuqivyicIkA=="
@@ -3974,6 +3987,11 @@
     "loader-utils" "^1.2.3"
     "schema-utils" "^2.5.0"
 
+"file-uri-to-path@1.0.0":
+  "integrity" "sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw=="
+  "resolved" "https://registry.npmjs.org/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz"
+  "version" "1.0.0"
+
 "filesize@^3.6.1":
   "integrity" "sha512-7KjR1vv6qnicaPMi1iiTcI85CyYwRO/PSFCu6SvqL8jN2Wjt/NIYQTFtFs7fSDCYOstUkEWIQGFUg5YZQfjlcg=="
   "resolved" "https://registry.npmjs.org/filesize/-/filesize-3.6.1.tgz"
@@ -4215,6 +4233,11 @@
   "resolved" "https://registry.npmjs.org/get-value/-/get-value-2.0.6.tgz"
   "version" "2.0.6"
 
+"get-youtube-id@^1.0.1":
+  "integrity" "sha512-5yidLzoLXbtw82a/Wb7LrajkGn29BM6JuLWeHyNfzOGp1weGyW4+7eMz6cP23+etqj27VlOFtq8fFFDMLq/FXQ=="
+  "resolved" "https://registry.npmjs.org/get-youtube-id/-/get-youtube-id-1.0.1.tgz"
+  "version" "1.0.1"
+
 "getpass@^0.1.1":
   "integrity" "sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo="
   "resolved" "https://registry.npmjs.org/getpass/-/getpass-0.1.7.tgz"
@@ -4440,6 +4463,11 @@
   "integrity" "sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A=="
   "resolved" "https://registry.npmjs.org/highlight.js/-/highlight.js-10.7.3.tgz"
   "version" "10.7.3"
+
+"highlight.js@^11.0.1", "highlight.js@^11.2.0":
+  "integrity" "sha512-JOySjtOEcyG8s4MLR2MNbLUyaXqUunmSnL2kdV/KuGJOmHZuAR5xC54Ko7goAXBWNhf09Vy3B+U7vR62UZ/0iw=="
+  "resolved" "https://registry.npmjs.org/highlight.js/-/highlight.js-11.2.0.tgz"
+  "version" "11.2.0"
 
 "hmac-drbg@^1.0.1":
   "integrity" "sha1-0nRXAQJabHdabFRXk+1QL8DGSaE="
@@ -8502,7 +8530,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2 || ^3.0.0-0", "vue@^3.0.0", "vue@^3.0.2", "vue@3.2.19":
+"vue@^2 || ^3.0.0-0", "vue@^3", "vue@^3.0.0", "vue@^3.0.2", "vue@3.2.19":
   "integrity" "sha512-6KAMdIfAtlK+qohTIUE4urwAv4A3YRuo8uAbByApUmiB0CziGAAPs6qVugN6oHPia8YIafHB/37K0O6KZ7sGmA=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.19.tgz"
   "version" "3.2.19"
@@ -8512,6 +8540,16 @@
     "@vue/runtime-dom" "3.2.19"
     "@vue/server-renderer" "3.2.19"
     "@vue/shared" "3.2.19"
+
+"vue3-youtube@^0.1.8":
+  "integrity" "sha512-JYEnXg9U9vRFNAdhYklEK2cgXFQupZnb+trKQDWZF6Z47WYV6PJVJbnKAT0xpAu1cWPaVZ7c6r2FVOR8lxw2Nw=="
+  "resolved" "https://registry.npmjs.org/vue3-youtube/-/vue3-youtube-0.1.8.tgz"
+  "version" "0.1.8"
+  dependencies:
+    "@types/youtube" "^0.0.39"
+    "core-js" "^3.6.5"
+    "get-youtube-id" "^1.0.1"
+    "vue" "^3.0.0"
 
 "vuex@^4.0.2":
   "integrity" "sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q=="
