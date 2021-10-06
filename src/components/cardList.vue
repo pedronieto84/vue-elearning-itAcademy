@@ -6,12 +6,7 @@
                 {{ item.length > 40 ? item.slice(0,40)+"..." : item }} {{index}}
             </button>
             
-           
             <!--LAPTOP SCREEN-->
-            <!--<button :class="{'prueba': counter == index }" v-show="completeMessage == false" @mouseenter="completeMessage = true && item.length > 150" @mouseleave="completeMessage = false" v-else type="button" class="list-group-item list-group-item-action">
-                {{ item.length > 150 ? item.slice(0,150)+"..." : item }}
-            </button>-->
-
             <button :class="{'displayCompleteMessage': counter == index }" @mouseenter="showMessage(index)"  v-else type="button" class="list-group-item list-group-item-action">
                 {{ item.length > 150 ? item.slice(0,150)+"..." : item }}
             </button>
