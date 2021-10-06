@@ -1,15 +1,5 @@
 <template>
-
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      Vue E-Learning With Bootstrap!
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <router-view ></router-view>
 </template>
 
 <script>
@@ -43,6 +33,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

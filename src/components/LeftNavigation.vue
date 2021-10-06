@@ -1,44 +1,52 @@
-<!-- La sintaxis per incorporar el component a la principal seria tal que:
-        <LeftNavigation :topics="topics" @actual="actual = $event" />
-    Rebent una llista de topics i emetent el topic que que es mostra actualment
- -->
-
 <template>
+  <div>
     <div v-for="(topic, index) in topics" :key="index" class="text-light">
-        <div :class="status(index)" @click="switchStatus(index)">{{topic.topicId}}. {{topic.title}}</div>
+      <div :class="status(index)" @click="switchStatus(index)">
+        {{ topic.topicId }}. {{ topic.title }}
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return {
-            actual,
-            visit: []
-        }
+  data() {
+    return {
+      visit: [],
+    };
+  },
+  computed: {
+    topics: function() {
+      return this.$store.getters.getTopics;
     },
-    props:['topics'],
-    emits:['actual'],
-    methods:{
-        status(index) {
-            let status;
-            if(this.actual==index) {status='bg-success'}
-            else if (this.visit[index]=='visited') {status = 'bg-primary'}
-            else {status="bg-secondary"}
-            return status;
-        },
-        switchStatus(index) {
-            this.actual = index;
-            this.visit[index]='visited';
-            console.log('Actual: '+this.actual)
-            this.$emit('actual', this.actual);
-        }
+    actual: function() {
+      return this.$store.getters.getActual;
     },
-    mounted() {
-        this.switchStatus(0);
+  },
+  watch: {
+    actual: function(val) {
+      this.visit[val] = "visited";
     },
-    update() {
-        
-    }
-}
+  },
+  methods: {
+    status(index) {
+      let status;
+      if (this.actual == index) {
+        status = "bg-success border border-light rounded m-1";
+      } else if (this.visit[index] == "visited") {
+        status = "bg-primary border border-light rounded m-1";
+      } else {
+        status = "bg-secondary border border-light rounded m-1";
+      }
+      return status;
+    },
+    switchStatus(index) {
+      this.visit[index] = "visited";
+      this.$store.dispatch("updateActual", index);
+    },
+  },
+  mounted() {
+    this.switchStatus(0);
+  },
+};
 </script>
