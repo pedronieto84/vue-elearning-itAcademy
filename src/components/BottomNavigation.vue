@@ -1,7 +1,16 @@
 <template>
     <div class="bottomNavigation bg-secondary">
       <div class="progress">
-        <div v-for="(point, index) in points" :key="index" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" :style="{width: 100/points.length + '%'}" :class="{'colorBar': index === currentPoint, 'colorBar2': index < currentPoint}"></div>
+        <div
+          class="progress-bar progress-bar-striped bg-primary"
+          role="progressbar"
+          :aria-valuenow="percent"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          :style="{width: percent + '%'}"
+        >
+        {{percent}}%
+        </div>
       </div>
       
       <div class="buttonsBar">
@@ -16,30 +25,35 @@
 <script>
 export default {
   name: 'bottomNavigation',
-  props: {
-    points:  {
-      type: Array,
-    }
-  },
   data(){
     return{
-      currentPoint: 0
+    }
+  },
+  computed: {
+    points: function() {
+      return this.$store.getters.getTopics;
+    },
+    currentPoint: function() {
+      return this.$store.getters.getActual;
+    },
+    percent: function () {
+      return (this.currentPoint*100/(this.points.length-1)).toFixed(0);
     }
   },
   methods: {
     moveForward(){
       this.index = this.currentPoint
       if(this.currentPoint < (this.points.length - 1)){
-        this.currentPoint++;
+        this.index++;
       }
-      this.$emit('currentPointEmit', this.currentPoint)
+      this.$store.dispatch('updateActual', this.index);
     },
     moveBack(){
       this.index = this.currentPoint
       if(this.currentPoint > 0){
-        this.currentPoint--;
+        this.index--;
       }
-      this.$emit('currentPointEmit', this.currentPoint)
+      this.$store.dispatch('updateActual', this.index);
     }
   }
 }
@@ -47,7 +61,7 @@ export default {
 
 <style scoped>
 .bottomNavigation{
-  height: 50px;
+  height: 100%;
   display: flex;
   flex-direction: column
 
@@ -69,14 +83,6 @@ export default {
 
 .progress-bar{
   background-color: #efefef;
-}
-
-.colorBar{
-  background: black
-}
-
-.colorBar2{
-  background: black
 }
 
 </style>

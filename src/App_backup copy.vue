@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -9,42 +8,21 @@
       </button>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App" />
-
-    <cardList></cardList>
   </div>
-  <CardTest />
-
 </template>
 
 <script>
-//import "bootstrap";
-//import "bootstrap/dist/css/bootstrap.min.css";
-import HelloWorld from './components/HelloWorld.vue'
-import cardList from './components/cardList.vue'
-
-import CardTest from './components/cardTest.vue'
-//import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
-
-
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "App",
 
   components: {
     HelloWorld,
-    cardList
-    CardTest,
-    //bottomNavigation
-
   },
-  data(){
-    return{
-      pointsArray: [1,2,3,4,5],
-      currentPointFather: Number, 
-    }
-  },
-}
-
+};
 </script>
 
 <style>
@@ -54,5 +32,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
