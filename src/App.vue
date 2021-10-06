@@ -16,7 +16,7 @@
 //import "bootstrap";
 //import "bootstrap/dist/css/bootstrap.min.css";
 import HelloWorld from './components/HelloWorld.vue'
-import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
+//import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
 
 
 export default {
@@ -24,7 +24,7 @@ export default {
 
   components: {
     HelloWorld,
-    bottomNavigation
+    //bottomNavigation
   },
   data(){
     return{
