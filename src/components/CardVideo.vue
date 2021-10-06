@@ -18,21 +18,24 @@
       <button @click="handleClick('stopVideo')">
         Stop
       </button>
-      <!-- <button @click="handleClick('resetView')">
+      <!-- 
+        These buttons were used only for testing the object
+        <button @click="handleClick('resetView')">
         Reset
-      </button> -->
+      </button>
       <button @click="handleClick('mute')">
         Mute
       </button>
       <button @click="handleClick('unMute')">
         Unmute
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+
 // npm vue-3-youtube plugin documentation https://github.com/NomNes/vue3-youtube
 import YouTube from "vue3-youtube";
 
@@ -42,7 +45,7 @@ export default defineComponent({
     return {
       playervars: {
         autoplay: 0,
-        controls: 1,
+        controls: 0,
       },
     };
   },
@@ -50,34 +53,23 @@ export default defineComponent({
   methods: {
     onReady() {
       this.$refs.youtube.playVideo();
-      console.log(this.$refs.youtube);
-      //Here goes the on load Seekto() with the time in seconds stored in localstore
-      this.$refs.youtube.seekTo(40);
+
+      //Next line goes the on-ready seekTo() with the time in seconds stored in localstore, if it doesn´t, then seekTo(0)
+      this.$refs.youtube.seekTo(1);
     },
     handleClick(event) {
       console.log("entro a handleClick");
       this.$refs.youtube[event]();
 
       if (event == "pauseVideo") {
-        // console.log("pausa");
-        // console.log(event);
         let time = this.$refs.youtube.getCurrentTime();
         alert("Video paused at: " + time);
       }
     },
     stateChange(e) {
-      // @state-change="stateChange"
-      // this.$refs.youtube.playVideo();
-      // console.log("Holi, state change");
-      // console.log(e);
       if (e.data == 0) {
         alert("Video ended!");
       }
-      // else if (e.data == 1) {
-      //   console.log("Holi, pause state change");
-      //   let time = this.$refs.youtube.getCurrentTime();
-      //   alert("Video paused at: " + time);
-      // }
     },
   },
 });
