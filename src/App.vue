@@ -10,7 +10,7 @@
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App" />
 
-    <cardList></cardList>
+    <cardList :listArray ="listPadre" ></cardList>
   </div>
 </template>
 
@@ -31,6 +31,11 @@ export default {
     return{
       pointsArray: [1,2,3,4,5],
       currentPointFather: Number, 
+      listPadre: ["Fdklsjfadlkfjdjfajdjfl jdhfkashkjfdah jfkdfjhaljknfjkdkfld jkdjfhs jkdhfda iqowqu ioqww` jdkhkf jdhaf qioqw m iwodqoie jdskha laos sadoa iouireor dsaidjld dafjdkahfjahfdafkdah", 
+            "kaskjdajsh jdhfkashkjfdah jfkdfjhaljknfjkdkfld jkdjfhs jkdhfda iqowqu ioqww` jdkhkf jdhaf qioqw m iwodqoie jdskha laos sadoa iouireor dsaidjld dafjdkahfjahfdafkdah" , 
+            "sjkhasda" , 
+            "sjhdka" , 
+            "Sajhkdsdka jdskhadhasj hoa que tal ccvfs fsgsg gdsgsf sgsf ro."],
     }
   },
 }

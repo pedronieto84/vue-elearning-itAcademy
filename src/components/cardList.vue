@@ -1,16 +1,22 @@
 <template>
     <div>
-        <div v-for="(item, index) in lists" :key="index"  class="list-group">
+        <div v-for="(item, index) in listArray" :key="index"  class="list-group">
             <!--MOBILE SCREEN-->
-            <button v-if="sizeScreen()" type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseExample">
-                {{ item.length > 40 ? item.slice(0,40)+"..." : item }}
+            <button :class="{'displayCompleteMessage': counter == index }" @click="showMessage(index)" v-if="sizeScreen()" type="button" class="list-group-item list-group-item-action">
+                {{ item.length > 40 ? item.slice(0,40)+"..." : item }} {{index}}
             </button>
+            
            
             <!--LAPTOP SCREEN-->
-            <button v-show="completeMessage == false" @mouseenter="completeMessage = true && item.length > 150" @mouseleave="completeMessage = false" v-else type="button" class="list-group-item list-group-item-action">
+            <!--<button :class="{'prueba': counter == index }" v-show="completeMessage == false" @mouseenter="completeMessage = true && item.length > 150" @mouseleave="completeMessage = false" v-else type="button" class="list-group-item list-group-item-action">
+                {{ item.length > 150 ? item.slice(0,150)+"..." : item }}
+            </button>-->
+
+            <button :class="{'displayCompleteMessage': counter == index }" @mouseenter="showMessage(index)"  v-else type="button" class="list-group-item list-group-item-action">
                 {{ item.length > 150 ? item.slice(0,150)+"..." : item }}
             </button>
-             <button v-show="completeMessage " type="button" class="list-group-item list-group-item-action">{{item}}</button>
+
+            <button v-show="counter == index" type="button" class="list-group-item list-group-item-action">{{item}}</button>
             
         </div>
     </div>
@@ -26,8 +32,7 @@ export default {
     
     data() {
         return {
-            lists: ["Fdklsjfadlkfjdjfajdjfl jdhfkashkjfdah jfkdfjhaljknfjkdkfld jkdjfhs jkdhfda iqowqu ioqww` jdkhkf jdhaf qioqw m iwodqoie jdskha laos sadoa iouireor dsaidjld dafjdkahfjahfdafkdah", "kaskjdajsh" , "sjkhasda" , "sjhdka" , "Sajhkdsdka jdskhadhasj hoa que tal ccvfs fsgsg gdsgsf sgsf ro."],
-            completeMessage: false,
+            counter: Number,
         }
     },
     
@@ -36,22 +41,28 @@ export default {
         sizeScreen(){
             if(window.innerWidth < 720){
                 console.log("pantalla pequeña")
-                return true
-                
+                return true  
             }else{
                 console.log("pantalla grande")
                 return false
-               
             }
         },
 
-    }, 
+        showMessage(value){
+            this.counter = value;
+        }
     
-  
+    }
 }
 </script>
 
 <style scoped>
+.displayCompleteMessage{
+    display:none
+}
 
+.list-group-item{
+    cursor: pointer
+}
 
 </style>
