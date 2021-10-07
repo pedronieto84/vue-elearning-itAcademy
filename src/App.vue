@@ -32,7 +32,7 @@ export default {
 
   components: {
     HelloWorld,
-    cardList
+    cardList,
     CardTest,
     //bottomNavigation
 
