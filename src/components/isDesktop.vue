@@ -12,6 +12,7 @@
       <h3>Is it really a desktop window?</h3>
       <h6>Computed properties in Component</h6>
       <h4>{{ checkDesktopComputed }}</h4>
+      <br>
     </section>
     <section>
       <h6>Testing Getters (refresh page)</h6>
