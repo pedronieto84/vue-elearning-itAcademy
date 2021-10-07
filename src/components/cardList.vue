@@ -7,7 +7,7 @@
             </button>
            
             <!--LAPTOP SCREEN-->
-            <button v-show="completeMessage == false" @mouseenter="completeMessage = true && item.length > 150" @mouseleave="completeMessage = false" v-else type="button" class="list-group-item list-group-item-action">
+            <button v-show="completeMessage == false" @mouseenter="completeMessage = true && item.length > 150"  v-else type="button" class="list-group-item list-group-item-action">
                 {{ item.length > 150 ? item.slice(0,150)+"..." : item }}
             </button>
              <button v-show="completeMessage " type="button" class="list-group-item list-group-item-action">{{item}}</button>
