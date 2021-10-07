@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    store.dispatch('getTopics');
+    this.$store.dispatch('getTopics');
   }
 };
 </script>
