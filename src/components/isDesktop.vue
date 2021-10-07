@@ -10,7 +10,7 @@
     </section>
     <section>
       <h3>Is it really a desktop window?</h3>
-      <h6>Watchers in Component</h6>
+      <h6>Computed properties in Component</h6>
       <h4>{{ checkDesktopComputed }}</h4>
     </section>
     <section>
