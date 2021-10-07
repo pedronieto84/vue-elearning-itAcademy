@@ -2,7 +2,7 @@
   <div>
     <YouTube
       class="mx-auto"
-      src="https://www.youtube.com/watch?v=ubL0PpKmGYQ"
+      :src="videoUrl"
       @ready="onReady"
       @state-change="stateChange"
       ref="youtube"
@@ -41,6 +41,8 @@ import YouTube from "vue3-youtube";
 
 export default defineComponent({
   name: "cardVideo",
+  props: ['videoUrl'],
+
   data() {
     return {
       playervars: {

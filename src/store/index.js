@@ -12,7 +12,10 @@ export default createStore({
           position: 1,
           moduleId: 1,
           cardId: 1,
-          cardType: 'video'
+          cardType: 'video',
+          card: {
+              videoUrl: 'https://www.youtube.com/watch?v=iXoViMla9fc'
+          }
         }
         ,
              {
@@ -32,7 +35,10 @@ export default createStore({
           position: 3,
           moduleId: 1,
           cardId: 1,
-          cardType: 'list'
+          cardType: 'list',
+          card: {
+              items: ["Fdklsjfadlkfjdjfajdjfl jdhfkashkjfdah jfkdfjhaljknfjkdkfld jkdjfhsjkdhfda iqowqu ioqww` jdkhkf jdhaf qioqw m iwodqoie jdskha laos sadoa iouireordsaidjld dafjdkahfjahfdafkdah", "kaskjdajsh jdhfkashkjfdah jfkdfjhaljknfjkdkfldjkdjfhs jkdhfda iqowqu ioqww` jdkhkf jdhaf qioqw m iwodqoie jdskha laos sadoaiouireor dsaidjld dafjdkahfjahfdafkdah" , "sjkhasda" , "sjhdka" , "Sajhkdsdkajdskhadhasj hoa que tal ccvfs fsgsg gdsgsf sgsf ro."]
+          }
         }
         ,
         { topicId: 1, 
@@ -66,8 +72,6 @@ export default createStore({
             }
         }
 
-
-        
 
     },
     mutations: {

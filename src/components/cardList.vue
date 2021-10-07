@@ -29,6 +29,8 @@ export default {
     data() {
         return {
             counter: Number,
+           
+
         }
     },
     
