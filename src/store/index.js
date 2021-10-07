@@ -25,7 +25,30 @@ export default createStore({
           position: 2,
           moduleId: 1,
           cardId: 1,
-          cardType: 'test'
+          cardType: 'test',
+          card: {
+              testId: 1,
+              title: 'Title de test',
+              subtitle: 'Ens referim a tota l`area metropolitana',
+              question: 'Pregunta quants habitants te Barcelona?',
+              items: [
+                  {
+                  answer: '100 milió',
+                  right: false
+              },
+              {
+                  answer: '10 milions',
+                  right: false
+              },{
+                  answer: '3 milions',
+                  right: true
+              },{
+                  answer: '100 mil',
+                  right: false
+              },
+            
+            ]
+          }
         }
         ,
              {

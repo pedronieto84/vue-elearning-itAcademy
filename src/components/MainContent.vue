@@ -6,7 +6,7 @@
     </h1>
     
     <div v-if="topics[actual].cardType === 'test'">
-   <cardTest />
+   <cardTest :testData="topics[actual].card" />
 
 
     </div>

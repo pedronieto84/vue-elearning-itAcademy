@@ -1,16 +1,16 @@
 <template>
   <div>
     <h2>Take a Quiz</h2>
-    <h6>{{ question }}</h6>
-    <small>{{ testId }}</small>
+    <h6>{{ testData.question }}</h6>
+    <small>{{ testData.testId }}</small>
     <br />
-    <small>{{ title }}</small>
+    <small>{{ testData.title }}</small>
     <br />
-    <small>{{ subtitle }}</small>
+    <small>{{ testData.subtitle }}</small>
     <div class="mt-2 col-12" role="tabpanel">
       <!-- List of possible answers -->
       <div class="list-group" id="myList" role="tablist">
-        <div v-for="(item, index) in items.itemsTest" :key="item">
+        <div v-for="(item, index) in testData.items" :key="item">
           <a
             @click="addResults(index)"
             class="
@@ -28,7 +28,7 @@
             data-toggle="list"
             href="#answer"
             role="tab"
-            >{{ items.itemsTest[index].text }}</a
+            >{{ testData.items[index].answer }}</a
           >
           <br />
         </div>
@@ -47,48 +47,27 @@
 <script>
 export default {
   name: "cardTest",
+  props: ['testData'],
   data() {
     return {
-      testId: "testA1",
-      question: "Com puc declarar una variable en JavaScript?",
-      title: "titleProva",
-      subtitle: "subtitleProva",
+     
       classList:
         "list-group-item list-group-item-action border border-secondary rounded-lg ",
       showResults: false,
       clickedHere: null,
-      items: {
-        itemsTest: [
-          {
-            text: "Amb char",
-            right: false,
-          },
-          {
-            text: "Amb let",
-            right: true,
-          },
-          {
-            text: "Amb text",
-            right: false,
-          },
-          {
-            text: "Totes les anteriors són vàlides",
-            right: false,
-          },
-        ],
-      },
-      answersAnswered: [],
+      
+  //    answersAnswered: [],
     };
   },
   methods: {
     addResults(index) {
       this.showResults = true;
       this.clickedHere = index;
-      this.answersAnswered.push(this.clickedHere);
+    //  this.answersAnswered.push(this.clickedHere);
       this.showResposta(index);
     },
     checkWhichOneIsRight() {
-      return this.items.itemsTest.findIndex((item) => {
+      return this.testData.items.findIndex((item) => {
         return item.right;
       });
     },
@@ -97,10 +76,10 @@ export default {
       this.$emit(`sendAnswer`, this.answersAnswered);
     }, */
     showResposta(index) {
-      if (this.items.itemsTest[index].right == true) {
+      if (this.testData.items[index].right == true) {
         document.getElementById("respostaMissatge").innerHTML =
           "Resposta correcta";
-      } else if (this.items.itemsTest[index].right == false) {
+      } else if (this.testData.items[index].right == false) {
         document.getElementById("respostaMissatge").innerHTML =
           "Resposta incorrecta";
       }
