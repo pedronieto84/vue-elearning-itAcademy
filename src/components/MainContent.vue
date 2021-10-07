@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mt-2">Content {{actual}}</h1>
+    <h1 class="mt-2">Content {{ arrayTest[actual]}}</h1>
    
   </div>
 </template>
@@ -14,6 +14,9 @@ export default {
   },
   data() {
     return {
+      arrayTest: [
+        'uno', 'dos', 'tres', 'cuatro'
+      ],
       
     }
   },

@@ -11,7 +11,7 @@ export default createStore({
             {topicId: 6, title: 'Six'},
             {topicId: 7, title: 'Seven'}
         ],
-        actual: 0
+        actual: 1
     },
     getters: {
         getActual(state) {
