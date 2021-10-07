@@ -42,6 +42,9 @@ export default {
     return{
     }
   },
+  mounted() {
+    store.dispatch('getTopics');
+  }
 };
 </script>
 

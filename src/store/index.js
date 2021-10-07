@@ -101,6 +101,7 @@ export default createStore({
             state.actual = nouActual;
         },
         updateTopics(state, payload) {
+            console.log(payload);
             state.topics = payload;
         }
     },
