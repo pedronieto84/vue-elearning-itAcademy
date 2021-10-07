@@ -1,19 +1,9 @@
 import { createStore } from 'vuex';
+import axios from 'axios';
 
 export default createStore({
     state: {
-
-        topics: [
-            { topicId: 1, title: 'One' },
-            { topicId: 2, title: 'Two' },
-            { topicId: 3, title: 'Three' },
-            { topicId: 4, title: 'Four' },
-            { topicId: 5, title: 'Five' },
-            { topicId: 6, title: 'Six' },
-            { topicId: 7, title: 'Seven' }
-        ],
-        actual: 0
-
+        baseURL: 'https://us-central1-asamblea-27a8d.cloudfunctions.net/',
          topics: [
         {
           topicId: 1,
@@ -62,6 +52,7 @@ export default createStore({
         },
         getTopics(state) {
             return state.topics;
+
         },
 
         getWidth(state) {
@@ -83,10 +74,17 @@ export default createStore({
         updateActual(state, nouActual) {
             state.actual = nouActual;
         },
+        updateTopics(state, payload) {
+            state.topics = payload;
+        }
     },
     actions: {
         updateActual({ commit }, actual) {
             commit('updateActual', actual);
+        },
+        async getTopics({ state, commit }) {
+            const topics = await axios.get(state.baseURL + 'getTopics');
+            commit('updateTopics', topics);
         },
     }
 });
