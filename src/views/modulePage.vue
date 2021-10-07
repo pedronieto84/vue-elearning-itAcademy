@@ -12,6 +12,8 @@
       </div>
       <Bottom id="bottom-row" />
     </div>
+
+    
     <div class="d-lg-none d-xl-none">
       <div class="col-12">
         <Left />

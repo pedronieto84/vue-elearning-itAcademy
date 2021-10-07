@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       Vue E-Learning With Bootstrap!
@@ -23,10 +24,20 @@ import IsDesktop from './components/isDesktop.vue'
 //import CardTest from './components/cardTest.vue'
 //import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
 
+  
+    <router-view></router-view>
+  </div>
+
+</template>
+
+<script>
+
+
 
 
 export default {
   name: "App",
+
 
   components: {
     //HelloWorld,
@@ -36,6 +47,9 @@ export default {
     IsDesktop
 
   },
+
+  
+
   data(){
     return{
       pointsArray: [1,2,3,4,5],
