@@ -15,14 +15,6 @@
 //import CardTest from './components/cardTest.vue'
 //import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
 
-
-  
-  
-
-
-
-
-
 export default {
   name: "App",
 
