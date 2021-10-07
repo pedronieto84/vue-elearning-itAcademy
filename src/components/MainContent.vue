@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="mt-2">Content {{ arrayTest[actual]}}</h1>
+    <h1 class="mt-2">
+    
+    Content {{ topics[actual]}}</h1>
    
   </div>
 </template>
@@ -14,10 +16,6 @@ export default {
   },
   data() {
     return {
-      arrayTest: [
-        'uno', 'dos', 'tres', 'cuatro'
-      ],
-      
     }
   },
 
@@ -25,6 +23,10 @@ export default {
     actual: function() {
       return this.$store.getters.getActual;
     },
+    topics: function() {
+      return this.$store.getters.getTopics;
+    }
+
   },
 };
 </script>
