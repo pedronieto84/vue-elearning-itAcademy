@@ -85,14 +85,25 @@ export default {
       this.showResults = true;
       this.clickedHere = index;
       this.answersAnswered.push(this.clickedHere);
+      this.showResposta(index);
     },
     checkWhichOneIsRight() {
       return this.items.itemsTest.findIndex((item) => {
         return item.right;
       });
     },
+    /*
     emitAnswer() {
       this.$emit(`sendAnswer`, this.answersAnswered);
+    }, */
+    showResposta(index) {
+      if (this.items.itemsTest[index].right == true) {
+        document.getElementById("respostaMissatge").innerHTML =
+          "Resposta correcta";
+      } else if (this.items.itemsTest[index].right == false) {
+        document.getElementById("respostaMissatge").innerHTML =
+          "Resposta incorrecta";
+      }
     },
   },
 };
