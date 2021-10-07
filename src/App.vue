@@ -24,17 +24,6 @@ import IsDesktop from './components/isDesktop.vue'
 //import CardTest from './components/cardTest.vue'
 //import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
 
-  
-    <router-view></router-view>
-  </div>
-
-</template>
-
-<script>
-
-
-
-
 export default {
   name: "App",
 
