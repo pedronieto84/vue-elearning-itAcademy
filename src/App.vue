@@ -1,17 +1,50 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+
+ <router-view></router-view>
+    <!-- <cardList></cardList> -->
+  </div> <!--
+  <CardTest /> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import "bootstrap";
+//import "bootstrap/dist/css/bootstrap.min.css";
+//import HelloWorld from './components/HelloWorld.vue'
+//import cardList from './components/cardList.vue'
+//import CardTest from './components/cardTest.vue'
+//import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
+
+
+  
+  
+
+
+
+
 
 export default {
-  name: 'App',
+  name: "App",
+
+
   components: {
-    HelloWorld
-  }
+    //HelloWorld,
+    //cardList,
+    //CardTest,
+    //bottomNavigation
+
+  },
+
+  
+
+  data(){
+    return{
+      pointsArray: [1,2,3,4,5],
+      
+    }
+  },
 }
+
 </script>
 
 <style>
@@ -21,6 +54,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
