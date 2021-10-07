@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
-//
+
 export default createStore({
     state: {
         baseURL: 'https://us-central1-asamblea-27a8d.cloudfunctions.net/',
