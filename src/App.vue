@@ -8,9 +8,9 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
 
     <cardList></cardList>
+    <router-view></router-view>
   </div>
   <CardTest />
 
@@ -19,7 +19,6 @@
 <script>
 //import "bootstrap";
 //import "bootstrap/dist/css/bootstrap.min.css";
-import HelloWorld from './components/HelloWorld.vue'
 import cardList from './components/cardList.vue'
 
 import CardTest from './components/cardTest.vue'
@@ -31,7 +30,6 @@ export default {
   name: "App",
 
   components: {
-    HelloWorld,
     cardList,
     CardTest,
     //bottomNavigation
