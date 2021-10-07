@@ -61,9 +61,6 @@ export default createStore({
         getTopics(state) {
             return state.topics;
         },
-        getWidth(state) {
-            return state.innerWidth;
-        },
         isDesktop() {
             if (window.innerWidth >= 992) {
                 return true;
@@ -75,17 +72,11 @@ export default createStore({
     mutations: {
         updateActual(state, nouActual) {
             state.actual = nouActual;
-        },
-        updateWidth(state, novaWidth) {
-            state.innerWidth = novaWidth;
         }
     },
     actions: {
         updateActual({ commit }, actual) {
             commit('updateActual', actual);
-        },
-        updateWidth({ commit }, innerWidth) {
-            commit('updateWidth', innerWidth);
         }
     }
 });

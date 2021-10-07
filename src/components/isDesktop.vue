@@ -12,10 +12,9 @@
       <h3>Is it really a desktop window?</h3>
       <h6>Watchers in Component</h6>
       <h4>{{ checkDesktopComputed }}</h4>
-      <h6>id4: {{ id4 }}</h6>
     </section>
     <section>
-      <h6>Testing Getters</h6>
+      <h6>Testing Getters (refresh page)</h6>
       <div>{{ isDesktop2 }}</div>
     </section>
   </div>
@@ -43,10 +42,6 @@ export default {
     checkDesktopComputed() {
       return this.window.width >= 992 ? "Yes" : "No";
     },
-    id4() {
-      //return this.$store.mutations.updateWidth;
-      return this.$store.state.innerWidth;
-    },
     isDesktop2: function () {
       return this.$store.getters.isDesktop;
     },
@@ -56,12 +51,6 @@ export default {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
     },
-    switchWidth() {
-      this.$store.dispatch("updateWidth", window.innerWidth);
-    },
-  },
-  mounted() {
-    this.switchWidth();
   },
 };
 </script>
