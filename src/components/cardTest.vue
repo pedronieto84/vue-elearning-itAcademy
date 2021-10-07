@@ -32,31 +32,6 @@
           >
           <br />
         </div>
-      <div v-for="(item, index) in items.itemsTest"
-      :key="item"
-      >
-      <a
-      @click="addResults(index)"
-      class="list-group-item list-group-item-action border border-secondary rounded-lg
-"
-      :class=" ( this.showResults  && ( this.clickedHere === index || item.right ) ) ? (  this.checkWichOneIsRight() === index ? 'bg-success' : 'bg-danger'  )  : ''  "
-      
-     
-   
-
- 
-  data-toggle="list"
-  href="#answer1"
-  role="tab">{{ items.itemsTest[index].text }}</a>
-
-<br />
-
-      </div>
-        <br />
-     
-    
-       
-        <br />
       </div>
 
       <!-- Status of the answer -->
@@ -82,11 +57,6 @@ export default {
         "list-group-item list-group-item-action border border-secondary rounded-lg ",
       showResults: false,
       clickedHere: null,
-
-      classList:'list-group-item list-group-item-action border border-secondary rounded-lg '
-,
-     showResults: false,
-     clickedHere: null,
       items: {
         itemsTest: [
           {
@@ -123,57 +93,6 @@ export default {
     },
     emitAnswer() {
       this.$emit(`sendAnswer`, this.answersAnswered);
-
-
-    addResults(index){
-      this.showResults = true;
-      this.clickedHere = index;
-/*
- const isThisOneTheRightOne = index === this.checkWichOneIsRight()
-      let classesToAdd = '';
-      
-
-      if(isThisOneTheRightOne){
-          classesToAdd = 'bg-success text-white'
-      }else{
-        classesToAdd = 'bg-danger text-white'
-      }
-       */
-     // this.classList += classesToAdd
-     // console.log('class list', this.classList)
-
-    },
-
-
-    checkWichOneIsRight(){
-      return this.items.itemsTest.findIndex((item)=>{
-        return item.right
-      })
-
-    },
-
-    returnRightClassDependingOnQuestion(){
-
-     
-     
-
-    },
-    bgColor(num) {
-      //alert(this.items.itemsTest[num].right);
-      /*
-      for (let i = 0; i < this.items.itemsTest.length; i++) {
-        //alert(this.items.itemsTest[i].right);
-        //alert(this.items.itemsTest[num].right);
-      } */
-      if (this.items.itemsTest[num].right == true) {
-        //alert("Green");
-        document.getElementById(`${num}`).className =
-          "list-group-item list-group-item-action border border-secondary rounded-lg bg-success text-white";
-      } else if (this.items.itemsTest[num].right == false) {
-        //alert("Red");
-        document.getElementById(`${num}`).className =
-          "list-group-item list-group-item-action border border-secondary rounded-lg bg-danger text-white";
-      }
     },
   },
 };
