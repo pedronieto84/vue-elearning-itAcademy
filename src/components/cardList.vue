@@ -8,6 +8,7 @@
             
             <!--LAPTOP SCREEN-->
             <button :class="{'displayCompleteMessage': counter == index }" @mouseenter="showMessage(index)"  v-else type="button" class="list-group-item list-group-item-action">
+
                 {{ item.length > 150 ? item.slice(0,150)+"..." : item }}
             </button>
 

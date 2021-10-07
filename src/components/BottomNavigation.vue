@@ -34,7 +34,7 @@ export default {
       return this.$store.getters.getTopics;
     },
     currentPoint: function() {
-      return this.$store.getters.getActual;
+      return this.$store.getters.getActual ;
     },
     percent: function () {
       return (this.currentPoint*100/(this.points.length-1)).toFixed(0);

@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     actual: function() {
-      return this.$store.getters.getActual;
+      return this.$store.getters.getActual + 1;
     },
     topics: function() {
       return this.$store.getters.getTopics;
@@ -47,7 +47,7 @@ export default {
       return status;
     },
     totalTopics() {
-      this.totaltopics = this.topics.length-1;
+      this.totaltopics = this.topics.length;
     },
     returnToMainMenu() {
       alert("Returning to main menu!");
