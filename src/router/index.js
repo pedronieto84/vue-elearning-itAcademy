@@ -4,8 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    name: 'Module',
-     component: () => import('../views/modulePage.vue')
+    redirect: '/module'
   },
   {
     path: '/module',
