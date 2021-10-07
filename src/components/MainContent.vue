@@ -6,14 +6,14 @@
     </h1>
     
     <div v-if="topics[actual].cardType === 'test'">
-   <cardTest />
+   <cardTest :testData="topics[actual].card" />
 
 
     </div>
 
     <div v-if="topics[actual].cardType === 'list'"
 >
-<cardList />
+<cardList :listArray="topics[actual].card.items" />
 
     </div>
 
@@ -23,7 +23,8 @@ text
     </div>
 
     <div v-if="topics[actual].cardType === 'video'">
-<CardVideo />
+<CardVideo :videoUrl="topics[actual].card.videoUrl"
+ />
     </div>
 
     
@@ -47,6 +48,7 @@ export default {
   },
   data() {
     return {
+
     }
   },
 
