@@ -1,15 +1,7 @@
 <template>
   <div>
 
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      Vue E-Learning With Bootstrap!
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <IsDesktop></IsDesktop>
+ <router-view></router-view>
     <!-- <cardList></cardList> -->
   </div> <!--
   <CardTest /> -->
@@ -20,7 +12,6 @@
 //import "bootstrap/dist/css/bootstrap.min.css";
 //import HelloWorld from './components/HelloWorld.vue'
 //import cardList from './components/cardList.vue'
-import IsDesktop from './components/isDesktop.vue'
 //import CardTest from './components/cardTest.vue'
 //import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
 
@@ -33,7 +24,6 @@ export default {
     //cardList,
     //CardTest,
     //bottomNavigation
-    IsDesktop
 
   },
 
@@ -42,7 +32,7 @@ export default {
   data(){
     return{
       pointsArray: [1,2,3,4,5],
-      currentPointFather: Number, 
+      
     }
   },
 }
