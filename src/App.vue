@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -9,20 +8,19 @@
       </button>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App" />
-
-    <cardList></cardList>
-  </div>
-  <CardTest />
-
+    <IsDesktop></IsDesktop>
+    <!-- <cardList></cardList> -->
+  </div> <!--
+  <CardTest /> -->
 </template>
 
 <script>
 //import "bootstrap";
 //import "bootstrap/dist/css/bootstrap.min.css";
-import HelloWorld from './components/HelloWorld.vue'
-import cardList from './components/cardList.vue'
-
-import CardTest from './components/cardTest.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+//import cardList from './components/cardList.vue'
+import IsDesktop from './components/isDesktop.vue'
+//import CardTest from './components/cardTest.vue'
 //import bottomNavigation from '@/components/displayContenido_bottomNavigation.vue'
 
 
@@ -31,10 +29,11 @@ export default {
   name: "App",
 
   components: {
-    HelloWorld,
-    cardList,
-    CardTest,
+    //HelloWorld,
+    //cardList,
+    //CardTest,
     //bottomNavigation
+    IsDesktop
 
   },
   data(){
