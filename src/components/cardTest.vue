@@ -90,10 +90,10 @@ export default {
       return this.items.itemsTest.findIndex((item) => {
         return item.right;
       });
-    },
+    }, /*
     emitAnswer() {
       this.$emit(`sendAnswer`, this.answersAnswered);
-    },
+    }, */
   },
 };
 </script>
