@@ -50,7 +50,8 @@ export default {
       this.totaltopics = this.topics.length;
     },
     returnToMainMenu() {
-      alert("Returning to main menu!");
+      console.log("Returning to main menu!");
+      this.$router.go(-1);
     },
   },
   beforeMount() {
