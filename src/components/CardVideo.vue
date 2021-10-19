@@ -1,7 +1,7 @@
 <template>
   <div>
     <YouTube
-      class="mx-auto"
+      class="mx-auto" :width="videoWidth" :height="videoHeight"
       :src="videoUrl"
       @ready="onReady"
       @state-change="stateChange"
@@ -50,6 +50,20 @@ export default defineComponent({
         controls: 0,
       },
     };
+  },
+  computed: {
+    videoWidth: function() {
+      let width;
+      if(window.innerWidth<660) {
+        width = window.innerWidth*0.8;
+      } else {
+        width = 640
+      }
+      return width;
+    },
+    videoHeight: function() {
+      return this.videoWidth*36/64;
+    }
   },
   components: { YouTube },
   methods: {
