@@ -22,6 +22,12 @@ const routes = [
         name: 'to Delete',
         component: () => import ('../views/toDelete.vue')
     },
+    {
+        path: '/toDeleteFerranTest',
+        name: 'TO DELETE LATER - TESTS BY FERRAN',
+        component: () =>
+            import ('../views/toDeleteFerranTest.vue')
+    }
 ];
 
 const router = createRouter({
