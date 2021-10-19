@@ -11,12 +11,6 @@ const routes = [{
         component: () =>
             import ('../views/modulePage.vue')
     },
-    {
-        path: '/checkScreen',
-        name: 'Check if Screen is Desktop',
-        component: () =>
-            import ('../views/isDesktopView.vue')
-    }
 ];
 
 const router = createRouter({
