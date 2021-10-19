@@ -11,6 +11,12 @@ const routes = [{
         component: () =>
             import ('../views/modulePage.vue')
     },
+    {
+        path: '/toDeleteModuleCard',
+        name: 'moduleCard',
+        component: () =>
+            import ('../views/toDeleteModuleCard.vue')
+    },
 ];
 
 const router = createRouter({
