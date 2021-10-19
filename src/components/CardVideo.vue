@@ -9,13 +9,13 @@
       :vars="playervars"
     />
     <div class="buttons mt-2">
-      <button @click="handleClick('playVideo')">
+      <button class="btn-success" @click="handleClick('playVideo')">
         Play
       </button>
-      <button @click="handleClick('pauseVideo')">
+      <button class="btn-warning" @click="handleClick('pauseVideo')">
         Pause
       </button>
-      <button @click="handleClick('stopVideo')">
+      <button class="btn-danger" @click="handleClick('stopVideo')">
         Stop
       </button>
       <!-- 
@@ -60,17 +60,18 @@ export default defineComponent({
       this.$refs.youtube.seekTo(1);
     },
     handleClick(event) {
-      console.log("entro a handleClick");
       this.$refs.youtube[event]();
 
       if (event == "pauseVideo") {
         let time = this.$refs.youtube.getCurrentTime();
-        alert("Video paused at: " + time);
+        console.log("Video paused at: " + time.toFixed(2) + "s");
       }
     },
     stateChange(e) {
       if (e.data == 0) {
-        alert("Video ended!");
+        console.log("Video ended!");
+        let index = this.$store.getters.getActual;
+        this.$store.dispatch("updateActual", index+1);
       }
     },
   },
