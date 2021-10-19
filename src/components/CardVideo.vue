@@ -1,7 +1,7 @@
 <template>
   <div>
     <YouTube
-      class="mx-auto"
+      class="mx-auto" :width="videoWidth" :height="videoHeight"
       :src="videoUrl"
       @ready="onReady"
       @state-change="stateChange"
@@ -9,13 +9,13 @@
       :vars="playervars"
     />
     <div class="buttons mt-2">
-      <button @click="handleClick('playVideo')">
+      <button class="btn-success" @click="handleClick('playVideo')">
         Play
       </button>
-      <button @click="handleClick('pauseVideo')">
+      <button class="btn-warning" @click="handleClick('pauseVideo')">
         Pause
       </button>
-      <button @click="handleClick('stopVideo')">
+      <button class="btn-danger" @click="handleClick('stopVideo')">
         Stop
       </button>
       <!-- 
@@ -51,6 +51,20 @@ export default defineComponent({
       },
     };
   },
+  computed: {
+    videoWidth: function() {
+      let width;
+      if(window.innerWidth<660) {
+        width = window.innerWidth*0.8;
+      } else {
+        width = 640
+      }
+      return width;
+    },
+    videoHeight: function() {
+      return this.videoWidth*36/64;
+    }
+  },
   components: { YouTube },
   methods: {
     onReady() {
@@ -60,17 +74,18 @@ export default defineComponent({
       this.$refs.youtube.seekTo(1);
     },
     handleClick(event) {
-      console.log("entro a handleClick");
       this.$refs.youtube[event]();
 
       if (event == "pauseVideo") {
         let time = this.$refs.youtube.getCurrentTime();
-        alert("Video paused at: " + time);
+        console.log("Video paused at: " + time.toFixed(2) + "s");
       }
     },
     stateChange(e) {
       if (e.data == 0) {
-        alert("Video ended!");
+        console.log("Video ended!");
+        let index = this.$store.getters.getActual;
+        this.$store.dispatch("updateActual", index+1);
       }
     },
   },

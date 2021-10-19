@@ -10,23 +10,50 @@
     </section>
     <section>
       <h3>Is it really a desktop window?</h3>
-      <h6>Width: 991 no, 992 yes</h6>
+      <h6>Computed properties in Component</h6>
       <h4>{{ checkDesktopComputed }}</h4>
+      <hr>
     </section>
     <section>
-      <h6>Testing Getters</h6>
-      <div v-if="isDesktop == true">Yes</div>
-      <div v-else-if="isDesktop == false">No</div>
-      <div>{{isDesktop2}}</div>
+      <h6>Testing Getters (refresh page)</h6>
+      <b>{{ isDesktop2 }}</b>
+      <hr>
     </section>
+    <section>
+      <h6>Testing <i>Vue Screen</i></h6>
+      <div>
+        <p>Screen width is <b>{{ screen.width }}</b></p>
+        <p>Screen height is <b>{{ screen.height }}</b></p>
+        <p>Current breakpoint is <b>{{ grid.breakpoint }}</b></p>
+      </div>
+    </section>
+    <div v-if="grid.breakpoint.sm == true">
+      Hey! It's small!
+    </div>
+    <hr>
+    <div v-if="checkTrueDesktop() == true">
+      YES, it is a desktop!
+    </div>
+    <div v-if="checkTrueDesktop() == false">
+      It is NOT a desktop!
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { useScreen, useGrid } from "vue-screen";
 
 export default {
   name: "isDesktop",
+  setup() {
+    const screen = useScreen();
+    const grid = useGrid("bootstrap");
+
+    return {
+      screen,
+      grid,
+    };
+  },
   data() {
     return {
       window: {
@@ -43,12 +70,11 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   computed: {
-    ...mapGetters(["isDesktop"]),
-    isDesktop2: function () {
-      return this.$store.getters.isDesktop;
-    },
     checkDesktopComputed() {
       return this.window.width >= 992 ? "Yes" : "No";
+    },
+    isDesktop2: function () {
+      return this.$store.getters.isDesktop;
     },
   },
   methods: {
@@ -56,6 +82,9 @@ export default {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
     },
+    checkTrueDesktop() {
+      return this.window.width >= 992 ? true : false;
+    }
   },
 };
 </script>
