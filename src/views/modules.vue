@@ -1,24 +1,32 @@
 <template>
-  <div>
-    <h1>Llista de modules del Course {{courseId}} </h1>
-    <p>Aquí aniran els moduleCard</p>
-    <div>
-      <router-link :to="{name: 'Module', params: {courseId: courseId, moduleId: 1} }" class="btn btn-success">Module 1</router-link>
-      <router-link :to="{name: 'Module', params: {courseId: courseId, moduleId: 2} }" class="btn btn-warning mx-2">Module 2</router-link>
-      <router-link :to="{name: 'Module', params: {courseId: courseId, moduleId: 3} }" class="btn btn-danger">Module 3</router-link>
+  <div class="mt-5 container">
+    <div class="text-center">
+      <button class="btn btn-sm btn-primary col-1" @click="this.$router.go(-1)" style="text-decoration: none">Back</button>
+      <h1>Llista de modules del Course {{courseId}} </h1>
     </div>
-    <button class="btn btn-primary" @click="this.$router.go(-1)">Back</button>
+    <div class="d-flex justify-content-center">
+      <div v-for="(moduleId, index) in modules" :key="index">
+          <ModuleCard class="m-2"
+          @click="this.$router.push({name: 'Module', params: {courseId: courseId, moduleId: moduleId}})" />
+          <!--router-link :to="{name: 'Module', params: {courseId: courseId, moduleId: moduleId} }" class="btn btn-success">Module {{moduleId}}</router-link-->
+      </div>
+    </div>
+    
   </div>
 </template>
 
 <script>
+import ModuleCard from "../components/moduleCard.vue"
+
   export default {
     name: "Modules",
     components: {
+      ModuleCard
     },
     data(){
       return{
         courseId:0,
+        modules: [1,2,3]
       }
     },
     mounted() {
