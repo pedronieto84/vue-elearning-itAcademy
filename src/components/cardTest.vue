@@ -71,10 +71,6 @@ export default {
         return item.right;
       });
     },
-    /*
-    emitAnswer() {
-      this.$emit(`sendAnswer`, this.answersAnswered);
-    }, */
     showResposta(index) {
       if (this.testData.items[index].right == true) {
         document.getElementById("respostaMissatge").innerHTML =
