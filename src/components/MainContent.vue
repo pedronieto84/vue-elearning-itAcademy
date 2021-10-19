@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>Router course {{courseId}} module {{moduleId}}</p>
     <h1 class="mt-2">
     
     Content {{ topics[actual].title}}
@@ -43,15 +44,13 @@ export default {
   name: "mainContent",
   components: {
     cardList, CardVideo, cardTest
-
-  
   },
   data() {
     return {
-
+      courseId:0,
+      moduleId:0
     }
   },
-
   computed: {
     actual: function() {
       return this.$store.getters.getActual;
@@ -61,5 +60,10 @@ export default {
     }
 
   },
+  mounted() {
+      let vue = this;
+      this.courseId = vue.$route.params.courseId; 
+      this.moduleId = vue.$route.params.moduleId; 
+    },
 };
 </script>
