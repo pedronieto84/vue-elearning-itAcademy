@@ -37,7 +37,7 @@
           <div class="col-9">
             <div class="card-body pt-3 pr-3 pb-3">
               <h5 class="card-title">{{ courseId.name }}</h5>
-              <p class="card-text">
+              <p class="card-text" v-snip="7">
                 {{courseId.description}}
               </p>
             </div>
