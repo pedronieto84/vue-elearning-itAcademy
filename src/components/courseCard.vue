@@ -8,14 +8,22 @@
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
                 alt="The JavaScript logo is a yellow square with the letters JS written on it in black. JS stands for JavaScript"
-                style="max-width: 80px"
+                style="max-width: 100px"
               />
             </h5>
-            <p class="card-text">
-              <button type="button" class="btn btn-outline-secondary mt-1">
-                Tag
-              </button>
-            </p>
+            <div class="card-text">
+              <div class="row">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary mt-1"
+                >
+                  Tag
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-info mt-1">
+                  Tag
+                </button>
+              </div>
+            </div>
             <p class="card-text">
               <small>7.9M learners</small>
             </p>
