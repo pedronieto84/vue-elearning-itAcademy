@@ -31,14 +31,15 @@
         </div>
         <div class="col-9">
           <div class="card-body pt-3 pr-3 pb-3">
-            <h5 class="card-title">JavaScript</h5>
+            <h5 class="card-title">JavaScript {{courseId}}</h5>
             <p class="card-text">
               JavaScript, often abbreviated as JS, is a programming language
               that conforms to the ECMAScript specification. JavaScript is
               high-level, often just-in-time compiled, and multi-paradigm.
             </p>
             <p class="card-text d-flex justify-content-end">
-              <button type="button" class="btn btn-primary">Start</button>
+              <router-link :to="{name: 'Modules', params: {courseId: courseId} }" class="btn btn-primary">Start</router-link>
+              <!--button type="button" class="btn btn-primary">Start</button-->
             </p>
           </div>
         </div>
@@ -46,6 +47,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+    props:['courseId']
+}
+</script>
 
 <style>
 #alignCard {
