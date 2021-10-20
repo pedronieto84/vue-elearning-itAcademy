@@ -9,7 +9,6 @@
           <ModuleCard class="m-2" :courseId="courseId" :moduleId="moduleId" />
       </div>
     </div>
-    
   </div>
 </template>
 

@@ -1,18 +1,13 @@
 <template>
-    <div class="moduleCard" v-for="moduleChild of modulesChild" :key="moduleChild.moduleId">
+    <div class="moduleCard">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Module {{moduleChild.moduleId}}</h5>
-                <p class="card-text">{{moduleChild.description}}</p>
+                <h5 class="card-title">Module {{moduleId.id}}</h5>
+                <p class="card-text">{{moduleId.title}}</p>
                 <div class="cardBottom">
                     <h5><span class="badge badge-secondary">Tag</span></h5>
-                    <!--<<button @click="onSubmit()" class="btn btn-primary">Start</button>-->
-                    <router-link :to="{ name: 'moduleCard', path: '/course/:courseId/:moduleId', params: {courseId: 1, moduleId: moduleChild.moduleId}}">
-                        <button  class="btn">Start</button> 
-                    </router-link>
+                    <button @click="onSubmit()" class="btn btn-primary">Start</button>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -20,19 +15,13 @@
 
 <script>
 export default {
-    props: {
-        modulesChild: Array,
-        courseIdChild: Number,
-    },
+    props: ['courseId', 'moduleId'],
     methods:{
-        onSubmit(){
-            this.$router.push('/course/:courseId/:moduleId');
+        onSubmit(){ 
+            this.$router.push({ path: `/course/${this.courseId}/${this.moduleId.id}` })   
         }
     }
-
-
 }
-
 </script>
 
 <style scoped>
@@ -47,5 +36,4 @@ export default {
     justify-content: space-around;
     align-items: baseline
 }
-
 </style>
