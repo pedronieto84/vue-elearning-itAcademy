@@ -1,45 +1,112 @@
 <template>
   <div id="alignCard">
-    <div class="card text-start mb-3" style="max-width: 500px">
-      <div class="row">
-        <div class="col-3">
-          <div class="card-body pt-3 pl-3 pb-3">
-            <h5 class="card-title">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-                alt="The JavaScript logo is a yellow square with the letters JS written on it in black. JS stands for JavaScript"
-                style="max-width: 100px"
-              />
-            </h5>
-            <div class="card-text">
-              <div class="row">
-                <button
-                  type="button"
+    <div v-if="isDesktop2()">
+      <div class="card text-start mb-3">
+        <div class="row">
+          <div class="col-3">
+            <div class="card-body pt-3 pl-3 pb-3 pr-0">
+              <h5 class="card-title">
+                <img
+                  :src="courseId.logo"
+                  :alt="courseId.altImg"
+                  style="max-width: 80px; max-height: 80px;"
+                />
+              </h5>
+              <p class="card-text mt-4">
+                <router-link
+                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
                   class="btn btn-sm btn-outline-secondary mt-1"
                 >
-                  Tag
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-info mt-1">
-                  Tag
-                </button>
+                  Online
+                </router-link>
+                <router-link
+                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                  class="btn btn-sm btn-outline-info mt-1"
+                >
+                  Final Test
+                </router-link>
+                <router-link
+                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                  class="btn btn-sm btn-outline-danger mt-1"
+                >
+                  Mentored
+                </router-link>
+              </p>
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="card-body pt-3 pr-3 pb-3">
+              <h5 class="card-title">{{ courseId.name }}</h5>
+              <p class="card-text">
+                {{courseId.description}}
+              </p>
+            </div>
+          </div>
+          
+        </div>
+        <div class="card-footer bg-white border-top-0">
+            <div class="row">
+              <div class="col-9">
+                <small>{{courseId.learners}}</small>
+              </div>
+              <div class="col-3">
+                <router-link
+                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                  class="btn btn-primary"
+                  >Start</router-link
+                >
               </div>
             </div>
-            <p class="card-text">
-              <small>7.9M learners</small>
-            </p>
           </div>
-        </div>
-        <div class="col-9">
-          <div class="card-body pt-3 pr-3 pb-3">
-            <h5 class="card-title">JavaScript {{courseId}}</h5>
+      </div>
+    </div>
+    <div v-else-if="!isDesktop2()">
+      <div class="card text-start mb-3" style="max-width: 500px">
+        <div class="row">
+          <div class="card-body pt-3 ml-3 pb-3 mr-3">
+            <h5 class="card-title text-center">
+              <img
+                :src="courseId.logo"
+                :alt="courseId.altImg"
+                style="max-width: 80px"
+              />
+            </h5>
+            <h5 class="card-title text-center">{{ courseId.name }}</h5>
             <p class="card-text">
-              JavaScript, often abbreviated as JS, is a programming language
-              that conforms to the ECMAScript specification. JavaScript is
-              high-level, often just-in-time compiled, and multi-paradigm.
+              <small>
+                {{courseId.description}}
+              </small>
             </p>
-            <p class="card-text d-flex justify-content-end">
-              <router-link :to="{name: 'Modules', params: {courseId: courseId} }" class="btn btn-primary">Start</router-link>
-              <!--button type="button" class="btn btn-primary">Start</button-->
+            <p class="card-text text-center">
+              <router-link
+                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                  class="btn btn-sm btn-outline-secondary mt-1"
+                >
+                  Online
+                </router-link>
+                <router-link
+                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                  class="btn btn-sm btn-outline-info mt-1 ml-1"
+                >
+                  Final Test
+                </router-link>
+                <router-link
+                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                  class="btn btn-sm btn-outline-danger mt-1 ml-1"
+                >
+                  Mentored
+                </router-link>
+            </p>
+            <p class="card-text text-center">
+                <small>{{courseId.learners}}</small>
+            </p>
+            <p class="card-text text-center">
+              <router-link
+                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                class="btn btn-primary"
+              >
+                Start
+              </router-link>
             </p>
           </div>
         </div>
@@ -50,8 +117,13 @@
 
 <script>
 export default {
-    props:['courseId']
-}
+  props: ["courseId"],
+  methods: {
+    isDesktop2: function () {
+      return this.$store.getters.isDesktop;
+    },
+  },
+};
 </script>
 
 <style>

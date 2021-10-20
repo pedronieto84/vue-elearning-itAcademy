@@ -8436,6 +8436,11 @@
   "resolved" "https://registry.npmjs.org/vue-screen/-/vue-screen-2.1.0-alpha.5.tgz"
   "version" "2.1.0-alpha.5"
 
+"vue-snip@^1.2.0":
+  "integrity" "sha512-7+5ry3lkG0bSbBBxpTQMBjfh+FE3+Oc1Y9l0lDHFtO0gXlkJZ8KRhNux4LiuPa3khmlVmX4efKuz9/8VbrmKnA=="
+  "resolved" "https://registry.npmjs.org/vue-snip/-/vue-snip-1.2.0.tgz"
+  "version" "1.2.0"
+
 "vue-style-loader@^4.1.0", "vue-style-loader@^4.1.2":
   "integrity" "sha512-sFuh0xfbtpRlKfm39ss/ikqs9AbKCoXZBpHeVZ8Tx650o0k0q/YCM7FRvigtxpACezfq6af+a7JeqVTWvncqDg=="
   "resolved" "https://registry.npmjs.org/vue-style-loader/-/vue-style-loader-4.1.3.tgz"
