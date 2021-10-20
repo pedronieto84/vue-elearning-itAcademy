@@ -16,21 +16,8 @@ const routes = [{
     {
         path: '/course/:courseId/:moduleId',
         name: 'Module',
-        component: () =>
-            import ('../views/modulePage.vue')
-    },
-    {
-        path: '/toDeleteFerranTest',
-        name: 'TO DELETE LATER - TESTS BY FERRAN',
-        component: () =>
-            import ('../views/toDeleteFerranTest.vue')
-    },
-    {
-        path: '/toDeleteModuleCard',
-        name: 'moduleCard',
-        component: () =>
-            import ('../views/toDeleteModuleCard.vue')
-    },
+        component: () => import ('../views/modulePage.vue')
+    }
 ];
 
 const router = createRouter({

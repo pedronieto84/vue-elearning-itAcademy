@@ -1,22 +1,24 @@
 <template>
-  <div>
+  <div class="mt-5 container">
     <h1>Course List</h1>
-    <p>Aqui aniran els courseCard</p>
-    <div>
-      <router-link :to="{name: 'Modules', params: {courseId: 1} }" class="btn btn-success">Course 1</router-link>
-      <router-link :to="{name: 'Modules', params: {courseId: 2} }" class="btn btn-warning mx-2">Course 2</router-link>
-      <router-link :to="{name: 'Modules', params: {courseId: 3} }" class="btn btn-danger">Course 3</router-link>
+    <div class="d-flex justify-content-center">
+      <div v-for="(courseId, index) in courses" :key="index">
+        <CourseCard class="m-2" :courseId="courseId" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import CourseCard from '../components/courseList/courseCard.vue'
   export default {
     name: "Courses",
     components: {
+      CourseCard
     },
     data(){
       return{
+        courses: [1,2,3]
       }
     },
     mounted() { 
