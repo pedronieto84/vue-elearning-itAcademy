@@ -3,9 +3,7 @@
     <h1>Course List</h1>
     <div class="d-flex justify-content-center">
       <div v-for="(courseId, index) in courses" :key="index">
-        <CourseCard class="m-2"
-         @click="this.$router.push({name: 'Modules', params: {courseId: courseId}})"/>
-        <!--router-link :to="{name: 'Modules', params: {courseId: courseId} }" class="btn btn-success">Course {{courseId}}</router-link-->
+        <CourseCard class="m-2" :courseId="courseId" />
       </div>
     </div>
   </div>

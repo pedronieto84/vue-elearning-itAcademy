@@ -6,9 +6,7 @@
     </div>
     <div class="d-flex justify-content-center">
       <div v-for="(moduleId, index) in modules" :key="index">
-          <ModuleCard class="m-2"
-          @click="this.$router.push({name: 'Module', params: {courseId: courseId, moduleId: moduleId}})" />
-          <!--router-link :to="{name: 'Module', params: {courseId: courseId, moduleId: moduleId} }" class="btn btn-success">Module {{moduleId}}</router-link-->
+          <ModuleCard class="m-2" :courseId="courseId" :moduleId="moduleId" />
       </div>
     </div>
     
