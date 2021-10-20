@@ -16,14 +16,7 @@ const routes = [{
     {
         path: '/course/:courseId/:moduleId',
         name: 'Module',
-        component: () =>
-            import ('../views/modulePage.vue')
-    },
-    {
-        path: '/toDeleteFerranTest',
-        name: 'TO DELETE LATER - TESTS BY FERRAN',
-        component: () =>
-            import ('../views/toDeleteFerranTest.vue')
+        component: () => import ('../views/modulePage.vue')
     }
 ];
 

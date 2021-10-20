@@ -1,49 +1,31 @@
 <template>
   <div>
     <p>Router course {{courseId}} module {{moduleId}}</p>
-    <h1 class="mt-2">
-    
-    Content {{ topics[actual].title}}
-    </h1>
-    
+    <h1 class="mt-2">Content {{ topics[actual].title}}</h1>
     <div v-if="topics[actual].cardType === 'test'">
-   <cardTest :testData="topics[actual].card" />
-
-
+      <CardTest :testData="topics[actual].card" />
     </div>
-
-    <div v-if="topics[actual].cardType === 'list'"
->
-<cardList :listArray="topics[actual].card.items" />
-
+    <div v-if="topics[actual].cardType === 'list'">
+      <CardList :listArray="topics[actual].card.items" />
     </div>
-
-    <div v-if="topics[actual].cardType === 'text'"
->
-text
+    <div v-if="topics[actual].cardType === 'text'">
+      text
     </div>
-
     <div v-if="topics[actual].cardType === 'video'">
-<CardVideo :videoUrl="topics[actual].card.videoUrl"
- />
+      <CardVideo :videoUrl="topics[actual].card.videoUrl"/>
     </div>
-
-    
-   
   </div>
 </template>
 
 <script>
-
-import cardList from '../components/cardList.vue'
-import CardVideo from '../components/CardVideo.vue'
-import cardTest from '../components/cardTest.vue'
-
+import CardList from './cards/cardList.vue'
+import CardTest from './cards/cardTest.vue'
+import CardVideo from './cards/cardVideo.vue'
 
 export default {
   name: "mainContent",
   components: {
-    cardList, CardVideo, cardTest
+    CardList, CardVideo, CardTest
   },
   data() {
     return {
