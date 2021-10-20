@@ -22,11 +22,11 @@
 </template>
 
 <script>
-import Top from "../components/TopNavigation.vue";
-import Left from "../components/LeftNavigation.vue";
-import Main from "../components/MainContent.vue";
-import Bottom from "../components/BottomNavigation.vue";
-import LeftBottom from "../components/LeftNavigationMobile.vue";
+import Top from "../components/modulePage/TopNavigation.vue";
+import Left from "../components/modulePage/LeftNavigation.vue";
+import Main from "../components/modulePage/MainContent.vue";
+import Bottom from "../components/modulePage/BottomNavigation.vue";
+import LeftBottom from "../components/modulePage/LeftNavigationMobile.vue";
 
 export default {
   name: "App",

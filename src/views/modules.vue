@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ModuleCard from "../components/moduleCard.vue"
+import ModuleCard from "../components/moduleList/moduleCard.vue"
 
   export default {
     name: "Modules",

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import CourseCard from '../components/courseCard.vue'
+import CourseCard from '../components/courseList/courseCard.vue'
   export default {
     name: "Courses",
     components: {
