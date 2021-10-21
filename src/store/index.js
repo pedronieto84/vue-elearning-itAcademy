@@ -127,6 +127,9 @@ export default createStore({
             } else if (window.innerWidth < 991) {
                 return false;
             }
+        },
+        innerWidth() {
+            return window.innerWidth;
         }
     },
     mutations: {
