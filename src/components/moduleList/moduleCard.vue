@@ -2,8 +2,8 @@
     <div class="moduleCard">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Module {{moduleId.id}}</h5>
-                <p class="card-text">{{moduleId.title}}</p>
+                <h5 class="card-title">Module {{module.moduleId}}</h5>
+                <p class="card-text">{{module.title}}</p>
                 <div class="cardBottom">
                     <h5><span class="badge badge-secondary">Tag</span></h5>
                     <button @click="onSubmit()" class="btn btn-primary">Start</button>
@@ -15,10 +15,10 @@
 
 <script>
 export default {
-    props: ['courseId', 'moduleId'],
+    props:['courseId', 'module']
     methods:{
         onSubmit(){ 
-            this.$router.push({ path: `/course/${this.courseId}/${this.moduleId.id}` })   
+            this.$router.push({ path: `/course/${this.courseId}/${this.module.moduleId}` })   
         }
     }
 }

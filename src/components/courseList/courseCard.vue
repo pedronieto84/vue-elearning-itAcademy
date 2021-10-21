@@ -68,13 +68,13 @@
           <div class="card-body pt-3 ml-3 pb-3 mr-3">
             <h5 class="card-title text-center">
               <img
-                :src="courseId.logo"
-                :alt="courseId.altImg"
+                :src="course.imagUrl"
                 style="max-width: 80px"
               />
             </h5>
             <h5 class="card-title text-center">{{ courseId.name }}</h5>
             <p class="card-text">
+
               <small>
                 {{ courseId.description }}
               </small>
