@@ -4,8 +4,8 @@
     <div v-if="innerWidth() >= 1200">
       <div class="d-flex justify-content-center">
         <div class="row">
-          <div v-for="(courseId, index) in courses" :key="index" class="col-4">
-            <CourseCard class="m-2" :courseId="courseId" :snipNumber="7" />
+          <div v-for="(course, index) in courses" :key="index" class="col-4">
+            <CourseCard class="m-2" :course="course" :snipNumber="7" />
           </div>
         </div>
       </div>
@@ -26,8 +26,8 @@
     <div v-else-if="innerWidth() >= 993 && innerWidth() <= 1199">
       <div class="d-flex justify-content-center">
         <div class="col-12">
-          <div v-for="(courseId, index) in courses" :key="index" class="col-6">
-            <CourseCard class="m-2" :courseId="courseId" :snipNumber="7" />
+          <div v-for="(course, index) in courses" :key="index" class="col-6">
+            <CourseCard class="m-2" :course="course" :snipNumber="7" />
           </div>
         </div>
       </div>
@@ -48,12 +48,17 @@ import CourseCard from '../components/courseList/courseCard.vue'
         courses: [1,2,3]
       }
     },
+    methods: {
+      innerWidth: function () {
+        return this.$store.getters.innerWidth;
+      },
+    },
     created() {
-      this.$store.dispatch('getCourses');
+      this.courses = this.$store.state.courses;
+      //this.$store.dispatch('getCourses');
     },
     mounted() {
       this.coursesBBDD = this.$store.state.courses;
     },
-  },
-};
+  }
 </script>
