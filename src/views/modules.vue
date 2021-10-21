@@ -22,9 +22,18 @@ import ModuleCard from "../components/moduleList/moduleCard.vue"
       ModuleCard
     },
     data(){
+
       return{
-        courseId: 0,
-        modules: [1,2,3]
+
+        courseId:0,
+        modules: [{
+          id: 1,
+          title: 'primero'
+        },
+        {
+          id: 2,
+          title: 'segundo'
+        }]
       }
     },
     computed: {
