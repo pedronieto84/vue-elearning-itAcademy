@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    props:['courseId', 'module']
+    props:['courseId', 'module'],
     methods:{
         onSubmit(){ 
             this.$router.push({ path: `/course/${this.courseId}/${this.module.moduleId}` })   
