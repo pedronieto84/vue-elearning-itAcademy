@@ -9,55 +9,57 @@
                 <img
                   :src="courseId.logo"
                   :alt="courseId.altImg"
-                  style="max-width: 80px; max-height: 80px;"
+                  style="max-width: 80px; max-height: 80px"
                 />
               </h5>
-              <p class="card-text mt-4">
-                <router-link
-                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                  class="btn btn-sm btn-outline-secondary mt-1"
-                >
-                  Online
-                </router-link>
-                <router-link
-                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                  class="btn btn-sm btn-outline-info mt-1"
-                >
-                  Final Test
-                </router-link>
-                <router-link
-                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                  class="btn btn-sm btn-outline-danger mt-1"
-                >
-                  Mentored
-                </router-link>
-              </p>
+              <div class="card-text mt-4">
+                <div v-for="index in courseId.tags" :key="index">
+                  <router-link
+                    :to="{
+                      name: 'Modules',
+                      params: { courseId: courseId.name },
+                    }"
+                    class="btn btn-sm mt-1"
+                    :class="index.col"
+                  >
+                    <div v-if="index.name.length <= 11">
+                      <small>
+                        {{ index.name }}
+                      </small>
+                    </div>
+                    <div v-else>
+                      <small>
+                        {{ index.name.substring(0, 11) + "..." }}
+                      </small>
+                    </div>
+                  </router-link>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-9">
             <div class="card-body pt-3 pr-3 pb-3">
               <h5 class="card-title">{{ courseId.name }}</h5>
-              <p class="card-text" v-snip="7">
-                {{courseId.description}}
+              <p class="card-text" v-snip="snipNumber">
+                {{ courseId.description }}
               </p>
             </div>
           </div>
-          
         </div>
         <div class="card-footer bg-white border-top-0">
-            <div class="row">
-              <div class="col-9">
-                <small>{{courseId.learners}}</small>
-              </div>
-              <div class="col-3">
-                <router-link
-                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                  class="btn btn-primary"
-                  >Start</router-link
-                >
-              </div>
+          <div class="row">
+            <div class="col-9">
+              <small>{{ courseId.learners }}</small>
+            </div>
+            <div class="col-3">
+              <router-link
+                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                class="btn btn-primary"
+                >Start</router-link
+              >
             </div>
           </div>
+        </div>
       </div>
     </div>
     <div v-else-if="!isDesktop2()">
@@ -74,31 +76,31 @@
             <h5 class="card-title text-center">{{ courseId.name }}</h5>
             <p class="card-text">
               <small>
-                {{courseId.description}}
+                {{ courseId.description }}
               </small>
             </p>
             <p class="card-text text-center">
               <router-link
-                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                  class="btn btn-sm btn-outline-secondary mt-1"
-                >
-                  Online
-                </router-link>
-                <router-link
-                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                  class="btn btn-sm btn-outline-info mt-1 ml-1"
-                >
-                  Final Test
-                </router-link>
-                <router-link
-                  :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                  class="btn btn-sm btn-outline-danger mt-1 ml-1"
-                >
-                  Mentored
-                </router-link>
+                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                class="btn btn-sm btn-outline-secondary mt-1"
+              >
+                Online
+              </router-link>
+              <router-link
+                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                class="btn btn-sm btn-outline-info mt-1 ml-1"
+              >
+                Final Test
+              </router-link>
+              <router-link
+                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                class="btn btn-sm btn-outline-danger mt-1 ml-1"
+              >
+                Mentored
+              </router-link>
             </p>
             <p class="card-text text-center">
-                <small>{{courseId.learners}}</small>
+              <small>{{ courseId.learners }}</small>
             </p>
             <p class="card-text text-center">
               <router-link
@@ -117,7 +119,7 @@
 
 <script>
 export default {
-  props: ["courseId"],
+  props: ["courseId", "snipNumber"],
   methods: {
     isDesktop2: function () {
       return this.$store.getters.isDesktop;

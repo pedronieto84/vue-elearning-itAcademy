@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="moduleApp">
     <Top id="top-row" />
     <div v-if="!isDesktop2()">
       <div class="col-12">
@@ -61,5 +61,10 @@ export default {
 }
 #bottom-row {
   height: 10vh;
+}
+#moduleApp {
+  width: 100vw;
+  height:100vh;
+  overflow: hidden;
 }
 </style>
