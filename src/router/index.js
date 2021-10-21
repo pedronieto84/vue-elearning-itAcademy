@@ -16,8 +16,9 @@ const routes = [{
     {
         path: '/course/:courseId/:moduleId',
         name: 'Module',
-        component: () => import ('../views/modulePage.vue')
-    }
+        component: () =>
+            import ('../views/modulePage.vue')
+    },
 ];
 
 const router = createRouter({
