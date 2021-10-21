@@ -5,8 +5,8 @@
       <h1>Llista de modules del Course {{courseId}} </h1>
     </div>
     <div class="d-flex justify-content-center">
-      <div v-for="(moduleId, index) in modules" :key="index">
-          <ModuleCard class="m-2" :courseId="courseId" :moduleId="moduleId" />
+      <div v-for="(module, index) in modulesBBDD" :key="index">
+          <ModuleCard class="m-2" :courseId="courseId" :module="module" />
       </div>
     </div>
     
@@ -23,13 +23,25 @@ import ModuleCard from "../components/moduleList/moduleCard.vue"
     },
     data(){
       return{
-        courseId:0,
+        courseId: 0,
         modules: [1,2,3]
       }
     },
-    mounted() {
+    computed: {
+      modulesBBDD: function() {
+        return this.$store.state.modules;
+      }
+    },
+    created() {
       let vue = this;
-      this.courseId = vue.$route.params.courseId; 
+      this.courseId = vue.$route.params.courseId;
+      this.$store.dispatch('getModules', this.courseId);
+    },
+    mounted() {
+      
+    },
+    updated() {
+
     },
     methods: {
     }

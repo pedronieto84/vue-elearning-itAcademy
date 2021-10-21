@@ -2,8 +2,8 @@
   <div class="mt-5 container">
     <h1>Course List</h1>
     <div class="d-flex justify-content-center">
-      <div v-for="(courseId, index) in courses" :key="index">
-        <CourseCard class="m-2" :courseId="courseId" />
+      <div v-for="(course, index) in coursesBBDD" :key="index">
+        <CourseCard class="m-2" :course="course" />
       </div>
     </div>
   </div>
@@ -18,10 +18,15 @@ import CourseCard from '../components/courseList/courseCard.vue'
     },
     data(){
       return{
+        coursesBBDD: [],
         courses: [1,2,3]
       }
     },
-    mounted() { 
+    created() {
+      this.$store.dispatch('getCourses');
+    },
+    mounted() {
+      this.coursesBBDD = this.$store.state.courses;
     },
     methods: {
     }
