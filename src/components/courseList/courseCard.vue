@@ -7,17 +7,16 @@
             <div class="card-body pt-3 pl-3 pb-3 pr-0">
               <h5 class="card-title">
                 <img
-                  :src="courseId.logo"
-                  :alt="courseId.altImg"
+                  :src="course.imagUrl"
                   style="max-width: 80px; max-height: 80px"
                 />
               </h5>
               <div class="card-text mt-4">
-                <div v-for="index in courseId.tags" :key="index">
+                <!--div v-for="index in course.tags" :key="index">
                   <router-link
                     :to="{
                       name: 'Modules',
-                      params: { courseId: courseId.name },
+                      params: { courseId: course.courseId },
                     }"
                     class="btn btn-sm mt-1"
                     :class="index.col"
@@ -33,15 +32,15 @@
                       </small>
                     </div>
                   </router-link>
-                </div>
+                </div-->
               </div>
             </div>
           </div>
           <div class="col-9">
             <div class="card-body pt-3 pr-3 pb-3">
-              <h5 class="card-title">{{ courseId.name }}</h5>
+              <h5 class="card-title">{{ course.title }}</h5>
               <p class="card-text" v-snip="snipNumber">
-                {{ courseId.description }}
+                {{ course.description }}
               </p>
             </div>
           </div>
@@ -49,11 +48,11 @@
         <div class="card-footer bg-white border-top-0">
           <div class="row">
             <div class="col-9">
-              <small>{{ courseId.learners }}</small>
+              <!--small>{{ course.learners }}</small-->
             </div>
             <div class="col-3">
               <router-link
-                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                :to="{ name: 'Modules', params: { courseId: course.courseId } }"
                 class="btn btn-primary"
                 >Start</router-link
               >
@@ -68,39 +67,39 @@
           <div class="card-body pt-3 ml-3 pb-3 mr-3">
             <h5 class="card-title text-center">
               <img
-                :src="courseId.logo"
-                :alt="courseId.altImg"
+                :src="course.imagUrl"
                 style="max-width: 80px"
               />
             </h5>
-            <h5 class="card-title text-center">{{ courseId.name }}</h5>
+            <h5 class="card-title text-center">{{ courseId.title }}</h5>
             <p class="card-text">
+
               <small>
                 {{ courseId.description }}
               </small>
             </p>
             <div class="card-text mt-3 ml-2 mr-3 mb-3">
               <div class="row">
-                <div v-for="index in courseId.tags" :key="index">
+                <!--div v-for="index in courseId.tags" :key="index">
                   <router-link
                     :to="{
                       name: 'Modules',
-                      params: { courseId: courseId.name },
+                      params: { courseId: course.courseId },
                     }"
                     class="btn btn-sm ml-1"
                     :class="index.col"
                   >
                     {{ index.name }}
                   </router-link>
-                </div>
+                </div-->
               </div>
             </div>
             <p class="card-text text-center">
-              <small>{{ courseId.learners }}</small>
+              <!--small>{{ courseId.learners }}</small-->
             </p>
             <p class="card-text text-center">
               <router-link
-                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
+                :to="{ name: 'Modules', params: { courseId: course.courseId } }"
                 class="btn btn-primary"
               >
                 Start
@@ -115,7 +114,7 @@
 
 <script>
 export default {
-  props: ["courseId", "snipNumber"],
+  props: ["course", "snipNumber"],
   methods: {
     isDesktop2: function () {
       return this.$store.getters.isDesktop;

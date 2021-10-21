@@ -2,11 +2,12 @@
     <div class="moduleCard">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Lesson {{moduleId}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <h4><span class="badge badge-secondary">New</span></h4>
-                <router-link :to="{name: 'Module', params: {courseId: courseId, moduleId: moduleId} }" class="btn btn-primary">Start</router-link>
-                <!--button class="btn btn-primary">Start</button-->
+                <h5 class="card-title">Module {{module.moduleId}}</h5>
+                <p class="card-text">{{module.title}}</p>
+                <div class="cardBottom">
+                    <h5><span class="badge badge-secondary">Tag</span></h5>
+                    <button @click="onSubmit()" class="btn btn-primary">Start</button>
+                </div>
             </div>
         </div>
     </div>
@@ -14,7 +15,25 @@
 
 <script>
 export default {
-    props:['courseId', 'moduleId']
+    props:['courseId', 'module'],
+    methods:{
+        onSubmit(){ 
+            this.$router.push({ path: `/course/${this.courseId}/${this.module.moduleId}` })   
+        }
+    }
 }
-
 </script>
+
+<style scoped>
+.badge{
+    padding: 10px
+}
+.btn{
+    padding: 5px 10px !important; 
+}
+.cardBottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline
+}
+</style>
