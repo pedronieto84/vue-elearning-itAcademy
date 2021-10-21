@@ -7,7 +7,6 @@ import 'highlight.js/lib/common';
 import hljsVuePlugin from "@highlightjs/vue-plugin";
 import "highlight.js/styles/a11y-dark.css";
 import javascript from 'highlight.js/lib/languages/javascript.js';
-
 import VueSnip from 'vue-snip'
 
 hljs.registerLanguage('javascript', javascript);
