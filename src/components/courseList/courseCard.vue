@@ -79,26 +79,22 @@
                 {{ courseId.description }}
               </small>
             </p>
-            <p class="card-text text-center">
-              <router-link
-                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                class="btn btn-sm btn-outline-secondary mt-1"
-              >
-                Online
-              </router-link>
-              <router-link
-                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                class="btn btn-sm btn-outline-info mt-1 ml-1"
-              >
-                Final Test
-              </router-link>
-              <router-link
-                :to="{ name: 'Modules', params: { courseId: courseId.name } }"
-                class="btn btn-sm btn-outline-danger mt-1 ml-1"
-              >
-                Mentored
-              </router-link>
-            </p>
+            <div class="card-text mt-3 ml-2 mr-3 mb-3">
+              <div class="row">
+                <div v-for="index in courseId.tags" :key="index">
+                  <router-link
+                    :to="{
+                      name: 'Modules',
+                      params: { courseId: courseId.name },
+                    }"
+                    class="btn btn-sm ml-1"
+                    :class="index.col"
+                  >
+                    {{ index.name }}
+                  </router-link>
+                </div>
+              </div>
+            </div>
             <p class="card-text text-center">
               <small>{{ courseId.learners }}</small>
             </p>
