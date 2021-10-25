@@ -16,15 +16,19 @@
       <div class="buttonsBar">
         <button :class="{'buttonFunctions': currentPoint === 0}" class="btn" @click="moveBack()"><i class="fas fa-arrow-circle-left"></i></button>
         <button :class="{'buttonFunctions': currentPoint === points.length -1}" class="btn" @click="moveForward()"><i class="fas fa-arrow-circle-right"></i></button>
+        <botonFinalizar class="botonFinalizar" v-if="currentPoint == points.length -1"></botonFinalizar>
       </div>
-      
     </div>
 </template>
 
-
 <script>
+import botonFinalizar from './cards/botonFinalizar.vue'
+
 export default {
   name: 'bottomNavigation',
+  components: {
+    botonFinalizar
+  },
   data(){
     return{
     }
@@ -83,6 +87,10 @@ export default {
 
 .progress-bar{
   background-color: #efefef;
+}
+
+.botonFinalizar{
+  margin-top: 5px
 }
 
 </style>
