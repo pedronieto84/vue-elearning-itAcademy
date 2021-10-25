@@ -8,15 +8,15 @@
               <h5 class="card-title">
                 <img
                   :src="course.imagUrl"
-                  style="max-width: 80px; max-height: 80px"
+                  style="max-width: 80px;"
                 />
               </h5>
               <div class="card-text mt-4">
-                <!--div v-for="index in course.tags" :key="index">
+                <div v-for="index in course.tags" :key="index">
                   <router-link
                     :to="{
-                      name: 'Modules',
-                      params: { courseId: course.courseId },
+                      name: 'Tag',
+                      params: { tagId: index.tagId},
                     }"
                     class="btn btn-sm mt-1"
                     :class="index.col"
@@ -32,14 +32,14 @@
                       </small>
                     </div>
                   </router-link>
-                </div-->
+                </div>
               </div>
             </div>
           </div>
           <div class="col-9">
             <div class="card-body pt-3 pr-3 pb-3">
               <h5 class="card-title">{{ course.title }}</h5>
-              <p class="card-text" v-snip="snipNumber">
+              <p class="card-text" v-snip="7">
                 {{ course.description }}
               </p>
             </div>
@@ -48,7 +48,7 @@
         <div class="card-footer bg-white border-top-0">
           <div class="row">
             <div class="col-9">
-              <!--small>{{ course.learners }}</small-->
+              <small>{{ course.learners }} learners</small>
             </div>
             <div class="col-3">
               <router-link
