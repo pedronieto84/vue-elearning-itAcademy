@@ -1,13 +1,20 @@
 <template>
   <div class="mt-5 container">
+    <router-link
+      :to="{
+        name: 'Courses',
+      }"
+      class="btn btn-primary"
+      >Back To Courses</router-link
+    >
     <h1>Llista de cursos amb la tag {{ tagId }}</h1>
-      <div v-for="index in courses" :key="index">
-        <div v-for="tag in index.tags" :key="tag">
-          <div v-if="tagId == tag.tagId">
-            {{ tag.name }}
-          </div>
+    <div v-for="index in courses" :key="index">
+      <div v-for="tag in index.tags" :key="tag">
+        <div v-if="tagId == tag.tagId">
+          {{ tag.name }}
         </div>
       </div>
+    </div>
     <div v-if="innerWidth() >= 1200">
       <div class="d-flex justify-content-center">
         <div class="row">

@@ -16,7 +16,7 @@
                   <router-link
                     :to="{
                       name: 'Tag',
-                      params: { tagId: index.tagId},
+                      params: { tagId: index.tagId },
                     }"
                     class="btn btn-sm mt-1"
                     :class="index.col"
