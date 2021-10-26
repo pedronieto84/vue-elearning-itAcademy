@@ -143,7 +143,7 @@
             <!-- Course Title -->
             <h5 class="card-title text-center">{{ course.title }}</h5>
             <!-- Course description -->
-            <p class="card-text">
+            <p class="card-text" v-snip="5">
                 {{ course.description }}
             </p>
             <!-- Searches for tags attached to the course and then shows them, with the option to click to them (router-link) -->
