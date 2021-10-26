@@ -71,11 +71,11 @@
                 style="max-width: 80px"
               />
             </h5>
-            <h5 class="card-title text-center">{{ courseId.title }}</h5>
+            <h5 class="card-title text-center">{{ course.title }}</h5>
             <p class="card-text">
 
               <small>
-                {{ courseId.description }}
+                {{ course.description }}
               </small>
             </p>
             <div class="card-text mt-3 ml-2 mr-3 mb-3">
