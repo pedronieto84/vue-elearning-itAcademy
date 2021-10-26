@@ -4,31 +4,31 @@
         <div class="carousel-inner border border-dark bg-warning container">
             <div class="carousel-item active"> 
                 <h3>Slide 1</h3>
-                <SelectCourse :coursesId="courses" @selectedcourseId="setCourse($event)" />
+                <SelectCourse :coursesId="courses" @selectedCourse="setCourse($event)" />
             </div>
             <div class="carousel-item">
-                <h3>Slide 2 <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <h3>Slide 2 - <span v-if="course != ''">{{course}} Challenge</span></h3>
                 <SelectOpponent :selectedCourseId="course" @selectedOpponentId="setOpponent($event)" />
             </div>
             <div class="carousel-item">
-                <h3>Slide 3 <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <h3>Slide 3 - <span v-if="course != ''">{{course}} Challenge</span></h3>
                 <BetPoints :challengerId="challenger" :rivalId="rival" @amount="setAmount($event)" />
             </div>
             <div class="carousel-item">
-                <h3>Slide 4 <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <h3>Slide 4 - <span v-if="course != ''">{{course}} Challenge</span></h3>
                 <Scoreboard :challengerAnswers="challengerAnswers" :rivalAnswers="rivalAnswers" :challengerId="challenger" :rivalId="rival" />
                 <div v-for="challenge in challenges" v-bind:key="challenge">
                     <Challenge :challenge="{index: challenge, challenge: challenges[challenge]}" @answer="answer[challenge] = $event" />
                 </div>
             </div>
             <div class="carousel-item">
-                <h3>Slide 5 <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <h3>Slide 5 - <span v-if="course != ''">{{course}} Challenge</span></h3>
                 <GlobalResult :challengerAnswers="challengerAnswers" :rivalAnswers="rivalAnswers" :challengerId="challenger" :rivalId="rival" />
                 <button class="btn btn-primary" @click="nextSlide()">Check</button>
                 <button class="btn btn-secondary" @click="exit()">Exit</button>
             </div>
             <div class="carousel-item">
-                <h3>Slide 6 <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <h3>Slide 6 - <span v-if="course != ''">{{course}} Challenge</span></h3>
                 <CheckResults :challenges="challenges" :challengerAnswers="challengerAnswers" :rivalAnswers="rivalAnswers" :challengerId="challenger" :rivalId="rival" />
                 <button class="btn btn-primary" @click="previousSlide()">Back</button>
             </div>
@@ -67,7 +67,7 @@ export default {
             courses: ['JavaScript', 'Vue', 'Angular', 'React'],
             opponents: ['Ferran', 'Irene', 'David', 'Pedro'],
             course: "",
-            challenges: [],
+            challenges: [{}],
             challenger:"Toni",
             challengerAnswers: [],
             rival:"",
