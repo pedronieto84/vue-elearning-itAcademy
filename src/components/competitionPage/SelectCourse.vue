@@ -8,6 +8,7 @@
                 {{course}}
             </label>
         </div>
+
     </div>
 </template>
 
@@ -36,3 +37,4 @@ export default {
     margin-top: 20px;
 }
 </style>
+

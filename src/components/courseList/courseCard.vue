@@ -1,23 +1,26 @@
 <template>
   <div id="alignCard">
-    <div v-if="isDesktop2()">
+    <!-- DESKTOP VIEW FOR THE CARD -->
+    <div v-if="innerWidth() >= 1200">
+      <!-- v-for col-4 -->
       <div class="card text-start mb-3">
+        <!-- All the card is a row. Then it has a footer -->
         <div class="row">
+          <!-- Divided into two columns -->
           <div class="col-3">
+            <!-- Left column for logo, tags -->
             <div class="card-body pt-3 pl-3 pb-3 pr-0">
               <h5 class="card-title">
-                <img
-                  :src="course.imagUrl"
-                  style="max-width: 80px; max-height: 80px"
-                />
+                <img :src="course.imagUrl" style="max-width: 80px" />
               </h5>
               <div class="card-text mt-4">
-                <!--div v-for="index in course.tags" :key="index">
-                  <router-link
+                <div v-for="index in course.tags" :key="index">
+                  <div
                     :to="{
-                      name: 'Modules',
-                      params: { courseId: course.courseId },
+                      name: 'Tag',
+                      params: { tagId: index.tagId },
                     }"
+                    v-on:click="navigateByUrl(index.tagId)"
                     class="btn btn-sm mt-1"
                     :class="index.col"
                   >
@@ -31,24 +34,26 @@
                         {{ index.name.substring(0, 11) + "..." }}
                       </small>
                     </div>
-                  </router-link>
-                </div-->
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-9">
+            <!-- Right column for description -->
             <div class="card-body pt-3 pr-3 pb-3">
               <h5 class="card-title">{{ course.title }}</h5>
-              <p class="card-text" v-snip="snipNumber">
+              <p class="card-text" v-snip="7">
                 {{ course.description }}
               </p>
             </div>
           </div>
         </div>
         <div class="card-footer bg-white border-top-0">
+          <!-- Card footer is for learner number and Start button -->
           <div class="row">
             <div class="col-9">
-              <!--small>{{ course.learners }}</small-->
+              <small>{{ course.learners }} learners</small>
             </div>
             <div class="col-3">
               <router-link
@@ -61,42 +66,111 @@
         </div>
       </div>
     </div>
-    <div v-else-if="!isDesktop2()">
-      <div class="card text-start mb-3" style="max-width: 500px">
+    <!-- TABLET VIEW FOR THE CARD -->
+    <div v-else-if="innerWidth() >= 992 && innerWidth() <= 1199">
+      <!-- v-for col-12 -->
+      <div class="card text-start mb-3">
+        <!-- All the card is a row. Then it has a footer. -->
         <div class="row">
-          <div class="card-body pt-3 ml-3 pb-3 mr-3">
-            <h5 class="card-title text-center">
-              <img
-                :src="course.imagUrl"
-                style="max-width: 80px"
-              />
-            </h5>
-            <h5 class="card-title text-center">{{ courseId.title }}</h5>
-            <p class="card-text">
-
-              <small>
-                {{ courseId.description }}
-              </small>
-            </p>
-            <div class="card-text mt-3 ml-2 mr-3 mb-3">
-              <div class="row">
-                <!--div v-for="index in courseId.tags" :key="index">
-                  <router-link
+          <!-- Divided into two columns -->
+          <div class="col-2">
+            <!-- Left column for logo, tags -->
+            <div class="card-body pt-3 pl-3 pb-3 pr-0">
+              <h5 class="card-title">
+                <img :src="course.imagUrl" style="max-width: 80px" />
+              </h5>
+              <div class="card-text mt-4">
+                <div v-for="index in course.tags" :key="index">
+                  <div
                     :to="{
-                      name: 'Modules',
-                      params: { courseId: course.courseId },
+                      name: 'Tag',
+                      params: { tagId: index.tagId },
                     }"
-                    class="btn btn-sm ml-1"
+                    v-on:click="navigateByUrl(index.tagId)"
+                    class="btn btn-sm mt-1"
                     :class="index.col"
                   >
-                    {{ index.name }}
-                  </router-link>
-                </div-->
+                    <div v-if="index.name.length <= 11">
+                      <small>
+                        {{ index.name }}
+                      </small>
+                    </div>
+                    <div v-else>
+                      <small>
+                        {{ index.name.substring(0, 11) + "..." }}
+                      </small>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <p class="card-text text-center">
-              <!--small>{{ courseId.learners }}</small-->
+          </div>
+          <div class="col-10">
+            <!-- Right column for description -->
+            <div class="card-body pt-3 pr-3 pb-3">
+              <h5 class="card-title">{{ course.title }}</h5>
+              <p class="card-text" v-snip="7">
+                {{ course.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-white border-top-0">
+          <!-- Card footer is for learner number and Start button -->
+          <div class="row ml-1 mr-1 d-flex justify-content-between">
+            <small>{{ course.learners }} learners</small>
+            <router-link
+              :to="{ name: 'Modules', params: { courseId: course.courseId } }"
+              class="btn btn-primary"
+              >Start</router-link
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MOBILE VIEW FOR THE CARD -->
+    <div v-else-if="innerWidth() <= 991">
+      <!-- v-for col-12 -->
+      <div class="card text-start mb-3">
+        <!-- All the card is a row. Then it has a footer -->
+        <div class="row">
+          <!-- Single row, not divided into two columns anymore -->
+          <div class="card-body pt-3 ml-3 pb-3 mr-3">
+            <!-- Logo -->
+            <h5 class="card-title text-center">
+              <img :src="course.imagUrl" style="max-width: 80px" />
+            </h5>
+            <!-- Course Title -->
+            <h5 class="card-title text-center">{{ course.title }}</h5>
+            <!-- Course description -->
+            <p class="card-text">
+                {{ course.description }}
             </p>
+            <!-- Searches for tags attached to the course and then shows them, with the option to click to them (router-link) -->
+            <div class="card-text mt-3 ml-2 mr-3 mb-3">
+              <div class="text-center">
+                <div v-for="index in course.tags" :key="index">
+                  <router-link
+                    :to="{
+                      name: 'Tag',
+                      params: { tagId: index.tagId },
+                    }"
+                    v-on:click="navigateByUrl(index.tagId)"
+                    class="btn btn-sm mb-1"
+                    :class="index.col"
+                  >
+                    <small>
+                      {{ index.name }}
+                    </small>
+                  </router-link>
+                </div>
+              </div>
+            </div>
+            <!-- Course learners -->
+            <p class="card-text text-center">
+              <small>{{ course.learners }} learners</small>
+            </p>
+            <!-- Start button -->
             <p class="card-text text-center">
               <router-link
                 :to="{ name: 'Modules', params: { courseId: course.courseId } }"
@@ -114,10 +188,17 @@
 
 <script>
 export default {
-  props: ["course", "snipNumber"],
+  props: ["course"],
   methods: {
-    isDesktop2: function () {
-      return this.$store.getters.isDesktop;
+    navigateByUrl(id) {
+      console.log("id", id);
+      //  this.$router.push()
+      this.$router.push({ path: `/tag/${id}` }).then(() => {
+        this.$router.go();
+      });
+    },
+    innerWidth: function () {
+      return this.$store.getters.innerWidth;
     },
   },
 };

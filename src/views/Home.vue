@@ -1,15 +1,10 @@
 <template>
   <div id="home">
+    <h1>Welcome to the e-Learning platform</h1>
     <img alt="Vue logo" src="./../assets/logo.png" /><br />
-    <button class="btn btn-warning" style="text-decoration: none">
-      <router-link to="/module">MODUL</router-link>
-    </button>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      Vue E-Learning With Bootstrap!
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    <button class="btn btn-primary m-2" @click="this.$router.push('courses')">Courses</button>
+    <button class="btn btn-warning m-2" @click="this.$router.push('competition')">Competition</button>
+    <button class="btn btn-danger m-2" @click="this.$router.push('toDelete')">toDelete</button>
   </div>
 </template>
 <script>
