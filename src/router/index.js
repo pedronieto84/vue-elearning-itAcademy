@@ -3,6 +3,12 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [{
         path: "/",
+        name: "Home",
+        component: () =>
+            import ("../views/Home.vue"),
+    },
+    {
+        path: "/courses",
         name: "Courses",
         component: () =>
             import ("../views/courses.vue"),
@@ -29,13 +35,19 @@ const routes = [{
         path: "/tag",
         name: "Tag",
         component: () =>
-            import ("../views/tag.vue"),
+            import ("../views/courses.vue"),
     },
     {
         path: "/tag/:tagId",
         name: "Tag",
         component: () =>
-            import ("../views/tag.vue"),
+            import ("../views/courses.vue"),
+    },
+    {
+        path: "/competition",
+        name: "Competition",
+        component: () =>
+            import ("../views/competition.vue"),
     },
 ];
 
