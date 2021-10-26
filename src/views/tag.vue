@@ -4,7 +4,7 @@
       :to="{
         name: 'Courses',
       }"
-      class="btn btn-primary"
+      class="btn btn-primary mb-4"
       >Back To Courses</router-link
     >
     <h1>Llista de cursos amb la tag {{ tagId }}</h1>
