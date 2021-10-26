@@ -23,13 +23,13 @@ const routes = [{
         path: "/tag",
         name: "Tag",
         component: () =>
-            import ("../views/tag.vue"),
+            import ("../views/courses.vue"),
     },
     {
         path: "/tag/:tagId",
-        name: "Tag",
+        name: "Tags",
         component: () =>
-            import ("../views/tag.vue"),
+            import ("../views/courses.vue"),
     },
 ];
 

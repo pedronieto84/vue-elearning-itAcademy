@@ -120,9 +120,7 @@ export default {
     navigateByUrl(id){
       console.log('id', id);
     //  this.$router.push()
-      this.$router.push({ path: `/tag/${id}` }).then(()=>{
-        this.$router.go()
-      })
+      this.$router.push({ name: 'Tags', params:{tagId: id} })
     },
     isDesktop2: function () {
       return this.$store.getters.isDesktop;
