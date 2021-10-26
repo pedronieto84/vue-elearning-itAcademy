@@ -353,6 +353,7 @@ export default createStore({
         },
     },
     /// Chalenges
+    /*
     addUsers({ state }) {
         const user1 = { id: 1, name: 'One', email: 'user@one.one', points: 100 };
         const user2 = { id: 2, name: 'Two', email: 'user@two.two', points: 125 };
@@ -385,5 +386,5 @@ export default createStore({
         const user = state.users.get(data.userId);
         user.points += data.amount;
         state.users.set(data.userId, user);
-    }
+    } */
 })
