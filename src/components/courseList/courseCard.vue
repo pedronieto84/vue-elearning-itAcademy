@@ -13,11 +13,12 @@
               </h5>
               <div class="card-text mt-4">
                 <div v-for="index in course.tags" :key="index">
-                  <router-link
+                  <div
                     :to="{
                       name: 'Tag',
                       params: { tagId: index.tagId},
                     }"
+                    v-on:click="navigateByUrl(index.tagId)"
                     class="btn btn-sm mt-1"
                     :class="index.col"
                   >
@@ -31,7 +32,7 @@
                         {{ index.name.substring(0, 11) + "..." }}
                       </small>
                     </div>
-                  </router-link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -116,6 +117,13 @@
 export default {
   props: ["course", "snipNumber"],
   methods: {
+    navigateByUrl(id){
+      console.log('id', id);
+    //  this.$router.push()
+      this.$router.push({ path: `/tag/${id}` }).then(()=>{
+        this.$router.go()
+      })
+    },
     isDesktop2: function () {
       return this.$store.getters.isDesktop;
     },
