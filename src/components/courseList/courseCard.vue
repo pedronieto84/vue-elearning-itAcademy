@@ -16,7 +16,7 @@
                   <div
                     :to="{
                       name: 'Tag',
-                      params: { tagId: index.tagId},
+                      params: { tagId: index.tagId },
                     }"
                     v-on:click="navigateByUrl(index.tagId)"
                     class="btn btn-sm mt-1"
