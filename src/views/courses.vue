@@ -59,6 +59,7 @@ import CourseCard from '../components/courseList/courseCard.vue'
     },
     mounted() {
       this.coursesBBDD = this.$store.state.courses;
+      console.log('mounted');
     },
   }
 </script>
