@@ -31,6 +31,12 @@ const routes = [{
         component: () =>
             import ("../views/tag.vue"),
     },
+    {
+        path: '/toDelete',
+        name: 'toDelete',
+        component: () =>
+            import ('../views/toDelete.vue')
+    }
 ];
 
 const router = createRouter({
