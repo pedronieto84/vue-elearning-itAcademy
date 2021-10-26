@@ -352,39 +352,38 @@ export default createStore({
             return topic.data;
         },
     },
-        /// Chalenges
-        addUsers({state}) {
-            const user1 = {id: 1, name: 'One',      email: 'user@one.one',      points: 100};
-            const user2 = {id: 2, name: 'Two',      email: 'user@two.two',      points: 125};
-            const user3 = {id: 3, name: 'Three',    email: 'user@three.three',  points: 95};
-            const user4 = {id: 4, name: 'Four',     email: 'user@four.four',    points: 110};
-            state.users.set(1, user1);
-            state.users.set(2, user2);
-            state.users.set(3, user3);
-            state.users.set(4, user4);
-        },
-        createChallenge({state}, data) {
-            const challenge = {
-                challenger: data.challengerId,
-                rival: data.rivalId,
-                points: data.betPoints,
-            };
-            let challengeId = data.challengeId;
-            state.challenges.set(challengeId, challenge);
-            return challengeId;
-        },
-        endChallenge({state, dispatch}, data) {
-            const challenge = state.challenges.get(data.challengeId);
-            const loserId = (challenge.challenger == data.winnerId) ? challenge.rival : challenge.challenger;
-            const points = parseInt(challenge.points);
-            console.log(`${loserId} gives ${points} points to ${data.winnerId} `);
-            dispatch('addPoints', {userId: parseInt(data.winnerId), amount: points});
-            dispatch('addPoints', {userId: parseInt(loserId), amount: 0-points});
-        },
-        addPoints({state}, data) {
-            const user = state.users.get(data.userId);
-            user.points += data.amount;
-            state.users.set(data.userId, user);
-        }
+    /// Chalenges
+    addUsers({ state }) {
+        const user1 = { id: 1, name: 'One', email: 'user@one.one', points: 100 };
+        const user2 = { id: 2, name: 'Two', email: 'user@two.two', points: 125 };
+        const user3 = { id: 3, name: 'Three', email: 'user@three.three', points: 95 };
+        const user4 = { id: 4, name: 'Four', email: 'user@four.four', points: 110 };
+        state.users.set(1, user1);
+        state.users.set(2, user2);
+        state.users.set(3, user3);
+        state.users.set(4, user4);
+    },
+    createChallenge({ state }, data) {
+        const challenge = {
+            challenger: data.challengerId,
+            rival: data.rivalId,
+            points: data.betPoints,
+        };
+        let challengeId = data.challengeId;
+        state.challenges.set(challengeId, challenge);
+        return challengeId;
+    },
+    endChallenge({ state, dispatch }, data) {
+        const challenge = state.challenges.get(data.challengeId);
+        const loserId = (challenge.challenger == data.winnerId) ? challenge.rival : challenge.challenger;
+        const points = parseInt(challenge.points);
+        console.log(`${loserId} gives ${points} points to ${data.winnerId} `);
+        dispatch('addPoints', { userId: parseInt(data.winnerId), amount: points });
+        dispatch('addPoints', { userId: parseInt(loserId), amount: 0 - points });
+    },
+    addPoints({ state }, data) {
+        const user = state.users.get(data.userId);
+        user.points += data.amount;
+        state.users.set(data.userId, user);
     }
-});
+})
