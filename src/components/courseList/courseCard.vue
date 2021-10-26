@@ -132,16 +132,21 @@
     <div v-else-if="innerWidth() <= 991">
       <!-- v-for col-12 -->
       <div class="card text-start mb-3">
+        <!-- All the card is a row. Then it has a footer -->
         <div class="row">
+          <!-- Single row, not divided into two columns anymore -->
           <div class="card-body pt-3 ml-3 pb-3 mr-3">
+            <!-- Logo -->
             <h5 class="card-title text-center">
               <img :src="course.imagUrl" style="max-width: 80px" />
             </h5>
+            <!-- Course Title -->
             <h5 class="card-title text-center">{{ course.title }}</h5>
+            <!-- Course description -->
             <p class="card-text">
                 {{ course.description }}
-              </small>
             </p>
+            <!-- Searches for tags attached to the course and then shows them, with the option to click to them (router-link) -->
             <div class="card-text mt-3 ml-2 mr-3 mb-3">
               <div class="text-center">
                 <div v-for="index in course.tags" :key="index">
@@ -161,9 +166,11 @@
                 </div>
               </div>
             </div>
+            <!-- Course learners -->
             <p class="card-text text-center">
               <small>{{ course.learners }} learners</small>
             </p>
+            <!-- Start button -->
             <p class="card-text text-center">
               <router-link
                 :to="{ name: 'Modules', params: { courseId: course.courseId } }"
