@@ -139,7 +139,6 @@
             </h5>
             <h5 class="card-title text-center">{{ course.title }}</h5>
             <p class="card-text">
-              <small v-snip="5">
                 {{ course.description }}
               </small>
             </p>
