@@ -20,6 +20,12 @@ const routes = [{
             import ("../views/modulePage.vue"),
     },
     {
+        path: '/toDelete',
+        name: 'toDelete',
+        component: () =>
+            import ('../views/toDelete.vue')
+    },
+    {
         path: "/tag",
         name: "Tag",
         component: () =>
@@ -31,12 +37,6 @@ const routes = [{
         component: () =>
             import ("../views/tag.vue"),
     },
-    {
-        path: '/toDelete',
-        name: 'toDelete',
-        component: () =>
-            import ('../views/toDelete.vue')
-    }
 ];
 
 const router = createRouter({
