@@ -9,7 +9,7 @@ export default createStore({
                 courseId: 1,
                 modules: [],
                 title: "JavaScript",
-                description: "JavaScript (/ˈdʒɑːvəˌskrɪpt/),[9] often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.[10] JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.",
+                description: "JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.",
                 imagUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
                 route: "1",
                 learners: 394,
@@ -29,7 +29,7 @@ export default createStore({
                 courseId: 2,
                 modules: [],
                 title: "TypeScript",
-                description: "TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.[5] As TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs.",
+                description: "TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript. As TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs.",
                 imagUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/768px-Typescript_logo_2020.svg.png",
                 route: "2",
                 learners: 859,
@@ -54,7 +54,7 @@ export default createStore({
                 courseId: 3,
                 modules: [],
                 title: "Vue",
-                description: "Vue.js (commonly referred to as Vue; pronounced /vjuː/, like 'view'[4]) is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications.[11] It was created by Evan You, and is maintained by him and the rest of the active core team members.[12]",
+                description: "Vue.js (commonly referred to as Vue) is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members.",
                 imagUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/555px-Vue.js_Logo_2.svg.png",
                 route: "3",
                 learners: 986,
@@ -79,7 +79,7 @@ export default createStore({
                 courseId: 4,
                 modules: [],
                 title: "Angular",
-                description: 'Angular (commonly referred to as "Angular 2+" or "Angular CLI")[4][5] is a TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.',
+                description: 'Angular (commonly referred to as "Angular 2+" or "Angular CLI") is a TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.',
                 imagUrl: "https://seeklogo.com/images/A/angular-logo-B76B1CDE98-seeklogo.com.png",
                 route: "4",
                 learners: 5.453,
@@ -99,7 +99,7 @@ export default createStore({
                 courseId: 5,
                 modules: [],
                 title: "React",
-                description: "React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library[3] for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.[4][5][6] React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing, as well as certain client-side functionality.[7]",
+                description: "React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing, as well as certain client-side functionality.",
                 imagUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/539px-React.svg.png",
                 route: "5",
                 learners: 745,
@@ -243,6 +243,8 @@ export default createStore({
                 cardType: "text",
             },
         ],
+        users: new Map(),
+        challenges: new Map()
     },
     getters: {
         getActual(state) {
@@ -283,6 +285,7 @@ export default createStore({
         },
     },
     actions: {
+        /// Structure
         updateActual({ commit }, actual) {
             commit("updateActual", actual);
         },
@@ -349,4 +352,39 @@ export default createStore({
             return topic.data;
         },
     },
-});
+    /// Chalenges
+    /*
+    addUsers({ state }) {
+        const user1 = { id: 1, name: 'One', email: 'user@one.one', points: 100 };
+        const user2 = { id: 2, name: 'Two', email: 'user@two.two', points: 125 };
+        const user3 = { id: 3, name: 'Three', email: 'user@three.three', points: 95 };
+        const user4 = { id: 4, name: 'Four', email: 'user@four.four', points: 110 };
+        state.users.set(1, user1);
+        state.users.set(2, user2);
+        state.users.set(3, user3);
+        state.users.set(4, user4);
+    },
+    createChallenge({ state }, data) {
+        const challenge = {
+            challenger: data.challengerId,
+            rival: data.rivalId,
+            points: data.betPoints,
+        };
+        let challengeId = data.challengeId;
+        state.challenges.set(challengeId, challenge);
+        return challengeId;
+    },
+    endChallenge({ state, dispatch }, data) {
+        const challenge = state.challenges.get(data.challengeId);
+        const loserId = (challenge.challenger == data.winnerId) ? challenge.rival : challenge.challenger;
+        const points = parseInt(challenge.points);
+        console.log(`${loserId} gives ${points} points to ${data.winnerId} `);
+        dispatch('addPoints', { userId: parseInt(data.winnerId), amount: points });
+        dispatch('addPoints', { userId: parseInt(loserId), amount: 0 - points });
+    },
+    addPoints({ state }, data) {
+        const user = state.users.get(data.userId);
+        user.points += data.amount;
+        state.users.set(data.userId, user);
+    } */
+})

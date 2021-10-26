@@ -4,14 +4,13 @@
     <div v-if="innerWidth() >= 1200">
       <div class="d-flex justify-content-center">
         <div class="row">
-        <p>{{params}}</p>
-          <div v-for="(course, index) in coursesFiltered" :key="index" class="col-4">
-            <CourseCard class="m-2" :course="course" :snipNumber="7" />
+          <div v-for="(course, index) in courses" :key="index" class="col-4">
+            <CourseCard class="m-2" :course="course" />
           </div>
         </div>
       </div>
     </div>
-    <div v-else-if="innerWidth() <= 992">
+    <div v-else-if="innerWidth() >= 992 && innerWidth() <= 1199">
       <div class="d-flex justify-content-center">
         <div class="col-12 pl-0 pr-0">
           <div v-for="(course, index) in coursesFiltered" :key="index" class="col-12">
@@ -24,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div v-else-if="innerWidth() >= 993 && innerWidth() <= 1199">
+    <div v-else-if="innerWidth() <= 991">
       <div class="d-flex justify-content-center">
         <div class="col-12">
           <div v-for="(course, index) in coursesFiltered" :key="index" class="col-6">
@@ -81,5 +80,14 @@ import CourseCard from '../components/courseList/courseCard.vue'
       this.courses = this.$store.state.courses;
       console.log('mounted');
     },
-  }
+  },
+  created() {
+    this.courses = this.$store.state.courses;
+    //this.$store.dispatch('getCourses');
+  },
+  mounted() {
+    this.coursesBBDD = this.$store.state.courses;
+    console.log("mounted");
+  },
+};
 </script>
