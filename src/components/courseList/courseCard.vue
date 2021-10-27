@@ -143,7 +143,7 @@
             <!-- Course Title -->
             <h5 class="card-title text-center">{{ course.title }}</h5>
             <!-- Course description -->
-            <p class="card-text">
+            <p class="card-text" v-snip="5">
                 {{ course.description }}
             </p>
             <!-- Searches for tags attached to the course and then shows them, with the option to click to them (router-link) -->
@@ -190,12 +190,10 @@
 export default {
   props: ["course"],
   methods: {
-    navigateByUrl(id) {
-      console.log("id", id);
-      //  this.$router.push()
-      this.$router.push({ path: `/tag/${id}` }).then(() => {
-        this.$router.go();
-      });
+    navigateByUrl(id){
+      console.log('id', id);
+    //  this.$router.push()
+      this.$router.push({ name: 'Tags', params:{tagId: id} })
     },
     innerWidth: function () {
       return this.$store.getters.innerWidth;
