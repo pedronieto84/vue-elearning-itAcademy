@@ -39,7 +39,7 @@ const routes = [{
     },
     {
         path: "/tag/:tagId",
-        name: "Tag",
+        name: "Tags",
         component: () =>
             import ("../views/courses.vue"),
     },
