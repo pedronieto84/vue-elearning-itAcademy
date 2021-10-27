@@ -16,6 +16,7 @@ export default {
     components: {
         UserCard
     },
+    props: ['challenger','rival',"challengerAnswers","rivalAnswers"],
     data() {
         return {
         };

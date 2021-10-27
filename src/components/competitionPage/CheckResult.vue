@@ -1,13 +1,33 @@
 <template>
-    <div>
+    <div id="checking">
         <h1>CheckResults</h1>
+        <div class="d-flex justify-content-center">
+            <div v-for="(challenge, index) in challenges" :key="challenge">
+                <button class="btn btn-primary mx-2" data-toggle="collapse" :data-target='"#multiCollapseExample"+index' aria-expanded="false" :aria-controls='"multiCollapseExample"+index'>{{index+1}}</button>
+            </div>
+            <button class="btn btn-primary mx-2" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">All</button>
+        </div>
+        <div class="d-flex justify-content-center accordion-group">
+            <div v-for="(challenge, index) in challenges" :key="challenge" data-parent="#checking">
+                <div class="collapse multi-collapse" :id='"multiCollapseExample"+index'>
+                    <div class="card card-body">
+                        <h3>{{challenge.question}}</h3>
+                        <ul v-for="(option, ind) in challenge.options" :key="option">
+                            <li>{{option}}
+                                <span v-if="challenge.correct==ind">(Correct)</span>
+                                <span v-if="(challengerAnswers[index]) != undefined ? ((challengerAnswers[index].answer) == ind ? true : false) : false">(Yours)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    components: {
-    },
+    props: ["challenges","challengerAnswers","rivalAnswers","challenger","rival"],
     data() {
         return {
         };
