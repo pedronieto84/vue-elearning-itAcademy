@@ -8,7 +8,7 @@
             </div>
             <div class="carousel-item">
                 <h3>Slide 2 <span v-if="course != ''">{{course}} Challenge</span></h3>
-                <SelectOpponent :selectedCourseId="course" @selectedOpponentId="setOpponent($event)" />
+                <SelectOpponent :selectedCourseId="course" :opponents="opponents" @selectedOpponentId="setOpponent($event)" />
             </div>
             <div class="carousel-item">
                 <h3>Slide 3 <span v-if="course != ''">{{course}} Challenge</span></h3>
