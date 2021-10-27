@@ -4,7 +4,8 @@
     <div v-if="innerWidth() >= 1200">
       <div class="d-flex justify-content-center">
         <div class="row">
-          <div v-for="(course, index) in courses" :key="index" class="col-4">
+          <div v-for="(course, index) in coursesFiltered
+" :key="index" class="col-4">
             <CourseCard class="m-2" :course="course" />
           </div>
         </div>
