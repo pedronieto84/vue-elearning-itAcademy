@@ -6,17 +6,10 @@
 
 <script>
 export default {
-    components: {
-    },
+    props: ['user'],
     data() {
         return {
         };
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods:{
     }
 }
 </script>
