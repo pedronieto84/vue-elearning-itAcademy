@@ -9,23 +9,6 @@
         Back
       </button>
       <h1>Llista de modules del Course {{ courseId }}</h1>
-      <ul class="progress-tracker">
-        <li class="progress-step is-complete">
-          <div class="progress-marker"></div>
-        </li>
-        <li class="progress-step is-complete">
-          <div class="progress-marker"></div>
-        </li>
-        <li class="progress-step is-active">
-          <div class="progress-marker"></div>
-        </li>
-        <li class="progress-step">
-          <div class="progress-marker"></div>
-        </li>
-        <li class="progress-step">
-          <div class="progress-marker"></div>
-        </li>
-      </ul>
     </div>
     <div class="d-flex justify-content-center">
       <div v-for="(module, index) in modulesBBDD" :key="index">
@@ -73,7 +56,3 @@ export default {
   methods: {},
 };
 </script>
-
-<style lang="scss">
- @import "node_modules/progress-tracker/src/styles/progress-tracker.scss";
-</style>
