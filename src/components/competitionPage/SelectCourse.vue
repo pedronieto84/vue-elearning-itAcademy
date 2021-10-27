@@ -8,7 +8,6 @@
                 {{course}}
             </label>
         </div>
-
     </div>
 </template>
 
@@ -23,7 +22,7 @@ export default {
     methods:{
         selectCourse(){
             console.log(this.selectedCourse)
-            this.$emit('selectedCourse', this.selectedCourse);
+            this.$emit('selectedcourseId', this.selectedCourse);
         }
     }
     
