@@ -4,33 +4,38 @@
         <div class="carousel-inner border border-dark bg-warning container">
             <div class="carousel-item active"> 
                 <h3>Slide 1</h3>
-                <SelectCourse :coursesId="coursesId" @selectedcourseId="selectedcourseId = $event" />
+                <SelectCourse :coursesId="courses" @selectedCourse="setCourse($event)" />
             </div>
             <div class="carousel-item">
-                <h3>Slide 2 <span v-if="course != ''">{{course}} Challenge</span></h3>
-                <SelectOpponent />
+                <h3>Slide 2 - <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <SelectOpponent :selectedCourseId="course" @selectedOpponentId="setOpponent($event)" />
             </div>
             <div class="carousel-item">
-                <h3>Slide 3 <span v-if="course != ''">{{course}} Challenge</span></h3>
-                <BetPoints />
+                <h3>Slide 3 - <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <BetPoints :challenger="challenger" :rival="rival" @amount="setPoints($event)" />
             </div>
             <div class="carousel-item">
-                <h3>Slide 4 <span v-if="course != ''">{{course}} Challenge</span></h3>
-                <Scoreboard />
-                <Challenge />
+                <h3>Slide 4 - <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <Scoreboard :challengerAnswers="challengerAnswers" :rivalAnswers="rivalAnswers" :challenger="challenger" :rival="rival" />
+                <div v-for="challenge in challenges" v-bind:key="challenge">
+                    <Challenge :challenge="{index: challenge, challenge: challenges[challenge]}" @answer="answer[challenge] = $event" />
+                </div>
             </div>
             <div class="carousel-item">
-                <h3>Slide 5 <span v-if="course != ''">{{course}} Challenge</span></h3>
-                <GlobalResult />
+                <h3>Slide 5 - <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <GlobalResult :challengerAnswers="challengerAnswers" :rivalAnswers="rivalAnswers" :challengerId="challenger" :rivalId="rival" />
+                <button class="btn btn-primary" @click="nextSlide()">Check</button>
+                <button class="btn btn-secondary" @click="exit()">Exit</button>
             </div>
             <div class="carousel-item">
-                <h3>Slide 6 <span v-if="course != ''">{{course}} Challenge</span></h3>
-                <CheckResults />
+                <h3>Slide 6 - <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <CheckResults :challenges="challenges" :challengerAnswers="challengerAnswers" :rivalAnswers="rivalAnswers" :challengerId="challenger" :rivalId="rival" />
+                <button class="btn btn-primary" @click="previousSlide()">Back</button>
             </div>
         </div>
         <div class="mt-2">
-            <button class="btn btn-secondary" @click="previousSlide()">Previous</button>
-            <button class="btn btn-primary" @click="nextSlide()">Next</button>
+            <button class="btn btn-secondary" @click="previousSlide()"> &lt; </button>
+            <button class="btn btn-primary" @click="nextSlide()"> > </button>
         </div>
     </div>
 </template>
@@ -59,25 +64,45 @@ export default {
     },
     data() {
         return {
+            courses: ['JavaScript', 'Vue', 'Angular', 'React'],
+            opponents: [
+                {username: 'Ferran', img: 'https://randomuser.me/api/portraits/men/1.jpg', level: 10, points: 100},
+                {username: 'Irene', img: 'https://randomuser.me/api/portraits/women/1.jpg', level: 15, points: 150},
+                {username: 'David', img: 'https://randomuser.me/api/portraits/men/2.jpg', level: 20, points: 200},
+                {username: 'Pedro', img: 'https://randomuser.me/api/portraits/men/3.jpg', level: 25, points: 250},],
             course: "",
-            coursesId: ['JavaScript', 'Vue', 'Angular', 'React']
+            challenges: [{}],
+            challenger: {username: 'Toni', img: 'https://randomuser.me/api/portraits/men/4.jpg', level: 5, points: 50},
+            challengerAnswers: [],
+            rival: {username: 'Pedro', img: 'https://randomuser.me/api/portraits/men/3.jpg', level: 25, points: 250},
+            rivalAnswers: [],
+            points: 0,
         };
     },
-    computed: {
-
-    },
+    computed: {},
     mounted() {
         $('.carousel').carousel();
     },
     methods:{
-        previousSlide(){
-            $('.carousel').carousel('prev');
+        //Slides
+        currentSlide() {return $('div.active').index();},
+        previousSlide(){$('.carousel').carousel('prev');},
+        nextSlide(){$('.carousel').carousel('next');},
+        goSlide(num){$('.carousel').carousel(num);}, //Works as an array: first slide is number 0
+        exit() {alert("Competition ended");},
+        
+        //Components
+        setCourse(course) {
+            this.course = course;
+            this.nextSlide();
         },
-        nextSlide(){
-            $('.carousel').carousel('next');
+        setOpponent(rival) {
+            this.rival = rival;
+            this.nextSlide();
         },
-        goSlide(num){ //Works as an array: first slide is number 0
-            $('.carousel').carousel(num);
+        setPoints(amount) {
+            this.points = amount;
+            this.nextSlide();
         }
     }
 }
