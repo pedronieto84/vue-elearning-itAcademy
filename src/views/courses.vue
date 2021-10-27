@@ -1,43 +1,47 @@
 <template>
   <div class="mt-5 container">
     <h1>Course List</h1>
-    <div v-if="innerWidth() >= 1200">
-      <div class="d-flex justify-content-center">
-        <div class="row">
-          <div v-for="(course, index) in coursesFiltered
-" :key="index" class="col-4">
-            <CourseCard class="m-2" :course="course" />
-          </div>
-        </div>
-      </div>
+
+    <div v-if="this.tagId == null">Tots els cursos</div>
+    <div v-else-if="this.tagId != null">
+      Cursos amb l'etiqueta {{ this.tagId }} <!-- Ha de retornar tagName i no tagId - filtrar tags i relacionar ID amb Name -->
     </div>
-    <div v-else-if="innerWidth() >= 992 && innerWidth() <= 1199">
-      <div class="d-flex justify-content-center">
-        <div class="col-12 pl-0 pr-0">
-          <div
-            v-for="(course, index) in coursesFiltered"
-            :key="index"
-            class="col-12"
-          >
-            <CourseCard
-              class="mt-4 mb-4 ml-2 mr-2"
-              :course="course"
-              :snipNumber="4"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div v-else-if="innerWidth() <= 991">
-      <div class="d-flex justify-content-center">
-        <div class="col-12">
-          <div
-            v-for="(course, index) in coursesFiltered"
-            :key="index"
-            class="col-6"
-          >
-            <CourseCard class="m-2" :course="course" :snipNumber="7" />
-          </div>
+
+    <div class="d-flex justify-content-center">
+      <div
+        :class="
+          innerWidth() >= 1200
+            ? 'row'
+            : innerWidth() >= 992 && innerWidth() <= 1199
+            ? 'col-12 pl-0 pr-0'
+            : innerWidth() <= 991
+            ? 'col-12'
+            : ''
+        "
+      >
+        <div
+          v-for="(course, index) in coursesFiltered"
+          :key="index"
+          :class="
+            innerWidth() >= 1200
+              ? 'col-4'
+              : innerWidth() <= 1199
+              ? 'col-12'
+              : ''
+          "
+        >
+          <CourseCard
+            :class="
+              innerWidth() >= 1200
+                ? 'm-2'
+                : innerWidth() >= 992 && innerWidth() <= 1199
+                ? 'mt-4 mb-4 ml-2 mr-2'
+                : innerWidth() <= 991
+                ? 'm-2'
+                : ''
+            "
+            :course="course"
+          ></CourseCard>
         </div>
       </div>
     </div>
@@ -74,6 +78,7 @@ export default {
     return {
       courses: [],
       tagId: null,
+      tagName: null,
     };
   },
   methods: {
