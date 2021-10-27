@@ -9,8 +9,8 @@
                 <SelectCourse :coursesId="courses" @selectedCourse="setCourse($event)" />
             </div>
             <div class="carousel-item">
-                <h3>{{course}} Challenge</h3>
-                <SelectOpponent :selectedCourseId="course" @selectedOpponentId="setOpponent($event)" />
+                <h3>Slide 2 <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <SelectOpponent :selectedCourseId="course" :opponents="opponents" @selectedOpponentId="setOpponent($event)" />
             </div>
             <div class="carousel-item">
                 <h3>{{course}} Challenge against {{rival.username}}</h3>

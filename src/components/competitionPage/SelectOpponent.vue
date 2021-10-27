@@ -4,7 +4,7 @@
         <div class="form-check" v-for="opponent of opponents" :key="opponent.id">
             <input  class="form-check-input" type="radio" name="flexRadioDefault" :value="opponent" id="opponents" v-model="selectedOpponent" @change="SelectOpponent">
             <label class="form-check-label" for="opponents" >
-                {{opponent}}
+                {{opponent.username}}
             </label>
         </div>
     </div>
