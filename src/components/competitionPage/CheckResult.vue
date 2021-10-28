@@ -14,8 +14,8 @@
                         <h3>{{challenge.question}}</h3>
                         <ul v-for="(option, ind) in challenge.options" :key="option">
                             <li>{{option}}
-                                <span v-if="challenge.correct==ind">(Correct)</span>
-                                <span v-if="(challengerAnswers[index]) != undefined ? ((challengerAnswers[index].answer) == ind ? true : false) : false">(Yours)</span>
+                                <span class="text-success" v-if="challenge.correct==ind">(Correct)</span>
+                                <span class="text-danger" v-if="(challengerAnswers[index]) != undefined ? ((challengerAnswers[index].answer) == ind ? true : false) : false">(Yours)</span>
                             </li>
                         </ul>
                     </div>

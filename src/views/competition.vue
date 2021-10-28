@@ -9,15 +9,15 @@
                 <SelectCourse :coursesId="courses" @selectedCourse="setCourse($event)" />
             </div>
             <div class="carousel-item">
-                <h3>Slide 2 <span v-if="course != ''">{{course}} Challenge</span></h3>
+                <h3>{{course}} Challenge</h3>
                 <SelectOpponent :selectedCourseId="course" :opponents="opponents" @selectedOpponentId="setOpponent($event)" />
             </div>
             <div class="carousel-item">
-                <h3>{{course}} Challenge against {{rival.username}}</h3>
+                <h3>{{course}} Challenge</h3>
                 <BetPoints :challenger="challenger" :rival="rival" @amount="setPoints($event)" />
             </div>
             <div class="carousel-item" v-for="(challenge, index) in challenges" :key="challenge">
-                <h3>{{course}} Challenge against {{rival.username}} for {{points}} points</h3>
+                <h3>{{course}} Challenge</h3>
                 <Scoreboard :challengerAnswers="challengerCorrectAnswers" :rivalAnswers="rivalCorrectAnswers" :challenger="challenger" :rival="rival" />
                 <Challenge :challenge="challenge" :index="index" @answer="newChallengerAnswers(index, $event)" />
             </div>

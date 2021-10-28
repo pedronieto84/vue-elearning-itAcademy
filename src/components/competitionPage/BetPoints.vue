@@ -6,10 +6,7 @@
             <p>VS</p>
             <UserCard :user="rival"      class="m-2 bg-dark text-light" />
         </div>
-        <div class="d-flex justify-content-center align-items-center">
-            <p>Winner gets:</p>
-            <input class="form-input mx-2" type="number" v-model="points" :max="max" min="1">
-        </div>
+        <p>Winner gets:<input class="form-input mx-2" type="number" v-model="points" :max="max" min="1"> points</p>
         <div>
             <button class="btn btn-primary" @click="emit()">Start</button>
         </div>
