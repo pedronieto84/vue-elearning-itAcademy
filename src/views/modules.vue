@@ -9,6 +9,8 @@
         Back
       </button>
       <h1>Llista de modules del Course {{ courseId }}</h1>
+      <StepperComponentH />
+      <StepperComponentV />
     </div>
     <div class="d-flex justify-content-center">
       <div v-for="(module, index) in modulesBBDD" :key="index">
@@ -20,11 +22,15 @@
 
 <script>
 import ModuleCard from "../components/moduleList/moduleCard.vue";
+import StepperComponentH from "../components/moduleList/stepperComponentH.vue";
+//import StepperComponentV from "../components/moduleList/stepperComponentV.vue"
 
 export default {
   name: "Modules",
   components: {
     ModuleCard,
+    StepperComponentH,
+    //StepperComponentV
   },
   data() {
     return {
