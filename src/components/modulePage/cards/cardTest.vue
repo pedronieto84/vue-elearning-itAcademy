@@ -65,6 +65,7 @@ export default {
       this.clickedHere = index;
     //  this.answersAnswered.push(this.clickedHere);
       this.showResposta(index);
+      this.emitOption();
     },
     checkWhichOneIsRight() {
       return this.testData.items.findIndex((item) => {
@@ -80,6 +81,14 @@ export default {
           "Resposta incorrecta";
       }
     },
+    emitOption(){
+      let correct=false;
+      if (this.clickedHere==this.checkWhichOneIsRight()) {
+        correct=true
+      }
+      console.log(this.clickedHere, correct);
+      setTimeout(this.$emit('answer', {answer: this.clickedHere, correct: correct}), 10000);
+    }
   },
 };
 </script>

@@ -353,10 +353,10 @@ export default createStore({
         },
         /// Challenges
         addUsers({ state }) {
-            const user1 = { id: 1, name: 'One', email: 'user@one.one', points: 100 };
-            const user2 = { id: 2, name: 'Two', email: 'user@two.two', points: 125 };
-            const user3 = { id: 3, name: 'Three', email: 'user@three.three', points: 95 };
-            const user4 = { id: 4, name: 'Four', email: 'user@four.four', points: 110 };
+            const user1 = { id: 1, name: 'Pedro', email: 'pedro@one.one', points: 100 };
+            const user2 = { id: 2, name: 'Irene', email: 'irene@two.two', points: 125 };
+            const user3 = { id: 3, name: 'Ferran', email: 'ferran@three.three', points: 95 };
+            const user4 = { id: 4, name: 'David', email: 'david@four.four', points: 110 };
             state.users.set(1, user1);
             state.users.set(2, user2);
             state.users.set(3, user3);

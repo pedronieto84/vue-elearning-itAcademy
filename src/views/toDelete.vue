@@ -99,7 +99,8 @@ export default {
       this.$store.dispatch('createChallenge', {challengeId: challengeId, challengerId: this.challenger, rivalId: this.rival, betPoints: this.points});
       let winner = Math.floor(Math.random()*2);
       let winnerId;
-      if (winner == 1) {console.log('Challenger wins'); (winnerId = this.challenger)} else {console.log('Rival wins'); (winnerId = this.rival)}
+      console.log(this.users[this.challenger])
+      if (winner == 1) {alert(this.users[this.challenger-1].value.name+' (challenger) wins'); (winnerId = this.challenger)} else {alert(this.users[this.rival-1].value.name+' (rival) wins'); (winnerId = this.rival)}
       this.$store.dispatch('endChallenge', {challengeId:challengeId, winnerId:winnerId});
       if (event) {
         event.preventDefault()
