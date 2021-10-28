@@ -4,7 +4,7 @@
             <button class="btn btn-sm btn-success rounded m-2" @click="this.$router.go(-1)">Back</button>
             <h1>Competition</h1>
         </div>
-        <div class="carousel-inner border border-dark bg-warning container">
+        <div class="carousel-inner border border-dark bg-warning container p-3">
             <div class="carousel-item active"> 
                 <SelectCourse :coursesId="courses" @selectedCourse="setCourse($event)" />
             </div>
