@@ -11,10 +11,10 @@
             <div v-for="(challenge, index) in challenges" :key="challenge" data-parent="#checking">
                 <div class="collapse multi-collapse" :id='"multiCollapseExample"+index'>
                     <div class="card card-body">
-                        <h3>{{challenge.question}}</h3>
-                        <ul v-for="(option, ind) in challenge.options" :key="option">
-                            <li>{{option}}
-                                <span class="text-success" v-if="challenge.correct==ind">(Correct)</span>
+                        <h3>{{challenge.testId}} - {{challenge.question}}</h3>
+                        <ul v-for="(item, ind) in challenge.items" :key="item">
+                            <li>{{item.answer}}
+                                <span class="text-success" v-if="item.right">(Correct)</span>
                                 <span class="text-danger" v-if="(challengerAnswers[index]) != undefined ? ((challengerAnswers[index].answer) == ind ? true : false) : false">(Yours)</span>
                             </li>
                         </ul>
