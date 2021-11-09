@@ -81,6 +81,7 @@ export default {
   data: () => ({
     step: 1,
   }),
+  //kaudblaisdja
   computed: {
     stepperProgress() {
       return (100 / 9) * (this.step - 1) + "%";

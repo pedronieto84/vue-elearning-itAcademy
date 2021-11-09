@@ -23,6 +23,7 @@ export default {
             this.$router.push({ path: `/course/${this.courseId}/${this.module.moduleId}` })   
         }
     }
+    //alnañodsnaosd
 }
 </script>
 
