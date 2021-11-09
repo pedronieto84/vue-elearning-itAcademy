@@ -141,7 +141,7 @@ export default {
   },
 };
 </script>
-
+<!-- Més estils de CSS -->
 <style>
 #alignCard {
   text-align: start;
