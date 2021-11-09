@@ -23,7 +23,7 @@ export default {
     }
 }
 </script>
-
+<!-- Codi CSS -->
 <style scoped>
 .badge{
     padding: 10px
