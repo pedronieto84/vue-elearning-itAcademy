@@ -26,7 +26,7 @@ export default {
     //alnañodsnaosd
 }
 </script>
-
+<!-- Codi CSS -->
 <style scoped>
 .badge{
     padding: 10px
