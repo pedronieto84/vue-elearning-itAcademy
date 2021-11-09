@@ -76,6 +76,7 @@
 
 <script>
 export default {
+  //a,kjndlasknñslfn
   name: "StepperComponentH",
   data: () => ({
     step: 1,
