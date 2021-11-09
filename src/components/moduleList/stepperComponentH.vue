@@ -87,7 +87,7 @@ export default {
   },
 };
 </script>
-
+<!-- Aquest CSS hauria de estar aquí?-->
 <style scoped lang="scss">
 .stepper-progress {
   height: 2px;
