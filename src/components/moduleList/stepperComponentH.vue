@@ -88,8 +88,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.stepper-progress {
+<!--stepper-progress {
   height: 2px;
   z-index: -1;
   left: 0;
@@ -114,7 +113,7 @@ export default {
   display: grid;
   place-items: center;
   background-color: #fff;
-
+}
   .icon-success {
     opacity: 0;
     transform: scale(0);
@@ -126,19 +125,19 @@ export default {
     font-size: 22px;
     transition: all 500ms ease;
   }
-}
+
 
 .stepper-item-title {
   font-size: 14px;
   bottom: -24px;
 }
 
-.stepper-item.success {
+
   .stepper-item-counter {
     background-color: #c8ebc1;
     color: #fff;
     font-weight: 600;
-
+  }
     .icon-success {
       opacity: 1;
       transform: scale(1);
@@ -148,9 +147,7 @@ export default {
       opacity: 0;
       transform: scale(0);
     }
-  }
+  
   .stepper-item-title {
     color: #75cc65;
-  }
-}
-</style>
+  }-->
