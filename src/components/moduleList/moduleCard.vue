@@ -15,15 +15,18 @@
 
 <script>
 export default {
+    //lsfnjlksfnkl
+    //sfbsfdjsjsdnf
     props:['courseId', 'module'],
     methods:{
         onSubmit(){ 
             this.$router.push({ path: `/course/${this.courseId}/${this.module.moduleId}` })   
         }
     }
+    //alnañodsnaosd
 }
 </script>
-
+<!-- Codi CSS -->
 <style scoped>
 .badge{
     padding: 10px

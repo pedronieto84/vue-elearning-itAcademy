@@ -76,10 +76,12 @@
 
 <script>
 export default {
+  //a,kjndlasknñslfn
   name: "StepperComponentH",
   data: () => ({
     step: 1,
   }),
+  //kaudblaisdja
   computed: {
     stepperProgress() {
       return (100 / 9) * (this.step - 1) + "%";
@@ -87,8 +89,9 @@ export default {
   },
 };
 </script>
-
-<!--stepper-progress {
+<!-- Aquest CSS hauria de estar aquí?-->
+<style scoped lang="scss">
+.stepper-progress {
   height: 2px;
   z-index: -1;
   left: 0;
@@ -150,4 +153,4 @@ export default {
   
   .stepper-item-title {
     color: #75cc65;
-  }-->
+  }
