@@ -154,3 +154,5 @@ export default {
   .stepper-item-title {
     color: #75cc65;
   }
+
+  </style>
