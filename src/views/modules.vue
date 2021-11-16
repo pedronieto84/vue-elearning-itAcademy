@@ -12,9 +12,12 @@
       <StepperComponentH />
       <StepperComponentV />
     </div>
-    <div class="d-flex justify-content-center">
-      <div v-for="(module, index) in modulesBBDD" :key="index">
-        <ModuleCard class="m-2" :courseId="courseId" :module="module" />
+
+    <div class="container">
+      <div class="row row-cols-4">
+        <div v-for="(module, index) in modulesBBDD" :key="index" v-bind:class="getClass(modulesBBDD, index)">
+          <ModuleCard :courseId="courseId" :module="module" />
+        </div>
       </div>
     </div>
   </div>
@@ -59,6 +62,20 @@ export default {
   },
   mounted() {},
   updated() {},
-  methods: {},
+  methods: {
+    getClass(modulesBBDD, index) {
+      const defaultClass = 'col-3 m-2';
+
+      if (modulesBBDD[index+1] === undefined) {
+        return defaultClass;
+      }
+
+      if (/\d.1/.test(modulesBBDD[index+1].title) === true) {
+        return 'col-6 m-2';
+      }
+      
+      return defaultClass; 
+    }
+  },
 };
 </script>
