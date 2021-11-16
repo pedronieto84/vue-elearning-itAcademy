@@ -70,7 +70,7 @@ export default {
         return defaultClass;
       }
 
-      if (/\d.1/.test(modulesBBDD[index+1].title) === true) {
+      if (/^([0-9]{1}).1/.test(modulesBBDD[index+1].title) === true) {
         return 'col-6 m-2';
       }
       
