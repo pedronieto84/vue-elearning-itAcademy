@@ -110,23 +110,6 @@ export default createStore({
                 }, ],
             },
         ],
-        modules: [{
-                moduleId: 1,
-                topics: [],
-                title: "Module 1",
-                description: "Description 1  (from Vue store, not from backend or database)",
-                imagUrl: "image url",
-                route: "1",
-            },
-            {
-                moduleId: 2,
-                topics: [],
-                title: "Module 2",
-                description: "Description 2  (from Vue store, not from backend or database)",
-                imagUrl: "image url",
-                route: "2",
-            },
-        ],
         topics: [{
                 topicId: 1,
                 title: "Topic 1",

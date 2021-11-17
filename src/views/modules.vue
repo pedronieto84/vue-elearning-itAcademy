@@ -38,6 +38,8 @@ export default {
   data() {
     return {
       courseId: 0,
+      defaultGrid: 9,
+      currentGrid: 9,
       modules: [
         {
           id: 1,
@@ -70,9 +72,32 @@ export default {
         return defaultClass;
       }
 
-      if (/^([0-9]{1}).1/.test(modulesBBDD[index+1].title) === true) {
-        return 'col-6 m-2';
+      if (this.currentGrid < 0) {
+        this.currentGrid = 9;
       }
+
+      let current = this.currentGrid;
+
+console.log(
+  modulesBBDD[index+1]
+);
+
+      console.log('------------ GOOOOOOOOOO --------------');
+          console.log("this.currentGrid = " + this.currentGrid); // 9
+          console.log("current = "+current); // 9
+          console.log("title +1 = " + modulesBBDD[index+1].title); // Module 2
+          console.log('------------------ END -----------------');
+
+      if (/^([0-9]{1}).1/.test(modulesBBDD[index+1].title) === true) {
+        this.currentGrid = this.defaultGrid;
+
+        console.log("ENTRA");
+
+        return 'col-' + current + ' m-2';
+      }
+
+      this.currentGrid-= 3;
+      console.log("NOW currentGrid is = " + this.currentGrid);
       
       return defaultClass; 
     }
