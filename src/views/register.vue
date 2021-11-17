@@ -33,17 +33,7 @@ export default{
     },
 
     methods:{
-       async login(){
-           await this.axios.post('/register', this.data)
-                .then(response=>{
-                     localStorage.token = response.data.token
-                     this.$router.push({name:"mostrarShops"});
-                     
-                    })
-                    .catch(error=>{
-                        console.log(error)
-                    })
-        }
+       
     }
 } 
 </script>
