@@ -293,6 +293,7 @@ export default createStore({
 
                 console.log("BBDD: ");
                 console.log(modules.data);
+             
                 commit("setModules", modules.data);
             } catch (e) {
                 console.log(e);
