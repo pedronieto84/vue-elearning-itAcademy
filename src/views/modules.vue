@@ -1,14 +1,17 @@
 <template>
 
 <div class="container">
-  <stepper-component-v>
-    <div class="row mt-9 spacing-up" v-for="(item, index) in arrayPreformed" v-bind:key="item">
-        <div class="col-sm mt-9 spacing-up" v-for="(module) in arrayPreformed[index]" v-bind:key="module">
+<div class="row">
+ <stepper-component-v></stepper-component-v>
+</div>
+ 
+<div class="row mt-9 spacing-up" v-for="(item, index) in arrayPreformed" v-bind:key="item">
+      <div class="col-sm mt-9 spacing-up" v-for="(module) in arrayPreformed[index]" v-bind:key="module">
 
-          <ModuleCard :courseId="module.courseId" :module="module" />
-        </div>
-    </div>
-  </stepper-component-v>
+        <ModuleCard :courseId="module.courseId" :module="module" />
+      </div>
+</div>
+ 
 
 </div>
   
@@ -31,11 +34,7 @@ export default {
   },
   data() {
     return {
-      courseId: 0,
-      defaultGrid: 9,
-      currentRow: 0,
-      currentGrid: 9
-      
+      courseId: 0
     };
   },
   computed: {
