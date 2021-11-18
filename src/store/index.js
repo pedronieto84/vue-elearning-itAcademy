@@ -322,7 +322,7 @@ export default createStore({
 
       commit("setUser", user);
     },
-    crateUser({ commit }, user) {
+    async crateUser({ commit, state }, user) {
       // la de FERRAN
      
       // hacer la peticion AXIOS
