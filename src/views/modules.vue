@@ -1,15 +1,15 @@
 <template>
 
 <div class="container">
-  <div class="row mt-9 spacing-up" v-for="(item, index) in arrayPreformed" v-bind:key="item">
-    <div class="col-sm mt-9 spacing-up" v-for="(module) in arrayPreformed[index]" v-bind:key="module">
+  <stepper-component-v>
+    <div class="row mt-9 spacing-up" v-for="(item, index) in arrayPreformed" v-bind:key="item">
+        <div class="col-sm mt-9 spacing-up" v-for="(module) in arrayPreformed[index]" v-bind:key="module">
 
-<ModuleCard :courseId="module.courseId" :module="module" />
-
-
+          <ModuleCard :courseId="module.courseId" :module="module" />
+        </div>
     </div>
+  </stepper-component-v>
 
-  </div>
 </div>
   
 </template>
@@ -20,12 +20,13 @@
 //console.log('rows', rows)
 
 import ModuleCard from "../components/moduleList/moduleCard.vue";
+import StepperComponentV from '../components/moduleList/stepperComponentV.vue';
 
 
 export default {
   name: "Modules",
   components: {
-    
+    StepperComponentV,
     ModuleCard
   },
   data() {
