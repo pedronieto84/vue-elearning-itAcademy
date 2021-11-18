@@ -324,10 +324,12 @@ export default createStore({
     },
     crateUser({ commit }, user) {
       // la de FERRAN
-
+     
       // hacer la peticion AXIOS
+      const userResp = await axios.post(state.baseURL + "/register", user);
+      console.log(userResp.data);
 
-      commit("setUser", user);
+      commit("setUser", userResp);
     },
     updateActual({ commit }, actual) {
       commit("updateActual", actual);
