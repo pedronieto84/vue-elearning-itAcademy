@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Stepper Component</h1>
+    <h1>Modules</h1>
     <!-- COMPONENT -->
     <div class="row">
       <!-- Progress -->
@@ -27,7 +27,7 @@
           <div
             class="stepper-item d-flex flex-column align-items-center justify-content-between"
             :class="step > item ? 'success' : ''"
-            v-for="item in 6"
+            v-for="item in 10"
             :key="item"
           >
             <!-- Inside the circle -->
@@ -52,9 +52,9 @@
               </span>
             </div>
             <!-- Out of the circle -->
-            <!-- <span class="stepper-item-title position-absolute">
+             <span class="stepper-item-title position-absolute">
               Step {{ item }}
-            </span> -->
+            </span> 
           </div>
         </div>
       </div>
@@ -64,8 +64,8 @@
         <div v-if="step == item">Step {{ item }}</div>
       </div>
       <!-- Buttons -->
-      <div class="d-flex justify-content-between">
-        <button class="btn btn-secondary" @click="step--" :disabled="step == 1">
+      <div class="col-3 d-flex justify-content-between flex-column sm-3">
+        <button type="button" class="btn btn-secondary" @click="step--" :disabled="step == 1">
           Back
         </button>
         <button class="btn btn-primary" @click="step++" :disabled="step == 6">

@@ -1,64 +1,90 @@
 <template>
-  <div class="mt-5 container">
-    <div class="text-center">
-      <button
-        class="btn btn-sm btn-primary col-1"
-        @click="this.$router.go(-1)"
-        style="text-decoration: none"
-      >
-        Back
-      </button>
-      <h1>Llista de modules del Course {{ courseId }}</h1>
-      <StepperComponentH />
-      <StepperComponentV />
-    </div>
-    <div class="d-flex justify-content-center">
-      <div v-for="(module, index) in modulesBBDD" :key="index">
-        <ModuleCard class="m-2" :courseId="courseId" :module="module" />
+
+<div class="container">
+<div class="row">
+ <stepper-component-v></stepper-component-v>
+</div>
+ 
+<div class="row mt-9 spacing-up" v-for="(item, index) in arrayPreformed" v-bind:key="item">
+      <div class="col-sm mt-9 spacing-up" v-for="(module) in arrayPreformed[index]" v-bind:key="module">
+
+        <ModuleCard :courseId="module.courseId" :module="module" />
       </div>
-    </div>
-  </div>
+</div>
+ 
+
+</div>
+  
 </template>
 
 <script>
+//let rows =modules.data[modules.data.length - 1].title.split('.')[0]
+
+//console.log('rows', rows)
+
 import ModuleCard from "../components/moduleList/moduleCard.vue";
-import StepperComponentH from "../components/moduleList/stepperComponentH.vue";
-//import StepperComponentV from "../components/moduleList/stepperComponentV.vue"
+import StepperComponentV from '../components/moduleList/stepperComponentV.vue';
+
 
 export default {
   name: "Modules",
   components: {
-    ModuleCard,
-    StepperComponentH,
-    //StepperComponentV
+    StepperComponentV,
+    ModuleCard
   },
   data() {
     return {
-      courseId: 0,
-      modules: [
-        {
-          id: 1,
-          title: "primero",
-        },
-        {
-          id: 2,
-          title: "segundo",
-        },
-      ],
+      courseId: 0
     };
   },
   computed: {
     modulesBBDD: function () {
       return this.$store.state.modules;
     },
+
+
+    arrayPreformed: function( ){
+
+      const arrayFinal = [];
+      this.$store.state.modules.forEach((item)=>{
+        const myRow = parseInt(item.title.split('.')[0]) - 1
+        if(arrayFinal[myRow] === undefined) {
+          arrayFinal[myRow] = [item]
+        }else{
+              arrayFinal[myRow].push(item)
+        }
+      })
+
+      return arrayFinal
+    }
+
   },
-  created() {
+ created() {
     let vue = this;
     this.courseId = vue.$route.params.courseId;
     this.$store.dispatch("getModules", this.courseId);
+    
+
+
+
   },
-  mounted() {},
+  mounted() {
+
+   
+      
+
+
+
+  },
   updated() {},
-  methods: {},
+  methods: {
+
+  
+  },
 };
 </script>
+<style>
+.spacing-up{
+margin-top: 9px
+}
+</style>
