@@ -1,21 +1,30 @@
 <template>
 
 <div class="container">
-<div class="row">
- <stepper-component-v></stepper-component-v>
-</div>
- 
-<div class="row mt-9 spacing-up" v-for="(item, index) in arrayPreformed" v-bind:key="item">
-      <div class="col-sm mt-9 spacing-up" v-for="(module) in arrayPreformed[index]" v-bind:key="module">
-
-        <ModuleCard :courseId="module.courseId" :module="module" />
+  <div class="row">
+    <div class="stepper-container">
+      <stepper-component-v></stepper-component-v>
+    </div>
+    <div class="module-card-container">
+      <div class="row mt-9 spacing-up" v-for="(item, index) in arrayPreformed" v-bind:key="item">
+          <div class="col-sm mt-9 spacing-up" v-for="(module) in arrayPreformed[index]" v-bind:key="module">
+            <ModuleCard :courseId="module.courseId" :module="module" />
+          </div>
       </div>
-</div>
- 
-
+    </div>
+  </div>
 </div>
   
 </template>
+
+<style>
+.stepper-container {
+  width: 160px;
+}
+.module-card-container {
+  width: calc(100% - 160px);
+}
+</style>
 
 <script>
 //let rows =modules.data[modules.data.length - 1].title.split('.')[0]

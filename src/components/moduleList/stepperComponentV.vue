@@ -1,10 +1,13 @@
 <template>
-  <div class="container">
-    <h1>Modules</h1>
+  <div class="container stepper-module-container">
+    <h1 class="">Modules</h1>
+
+    <button type="button" class="btn btn-secondary mb-1" @click="step--" :disabled="step == 1">Back</button>
+
     <!-- COMPONENT -->
     <div class="row">
       <!-- Progress -->
-      <div class=col-3>
+      <div class="bubble-container">
         <div
           class="
             stepper
@@ -58,22 +61,15 @@
           </div>
         </div>
       </div>
-      <div class="col-9">
+      <div class="steps-container">
       <!-- Message -->
-      <div v-for="item in 6" :key="item">
+      <!--div v-for="item in 6" :key="item">
         <div v-if="step == item">Step {{ item }}</div>
-      </div>
-      <!-- Buttons -->
-      <div class="col-3 d-flex justify-content-between flex-column sm-3">
-        <button type="button" class="btn btn-secondary" @click="step--" :disabled="step == 1">
-          Back
-        </button>
-        <button class="btn btn-primary" @click="step++" :disabled="step == 6">
-          Forward
-        </button>
-      </div>
+      </div-->
       </div>
     </div>
+    
+    <button class="btn btn-primary" @click="step++" :disabled="step == 6">Forward</button>
   </div>
 </template>
 
@@ -93,6 +89,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+h1 {
+  font-size: 2rem;
+}
+.stepper-module-container {
+  position: relative;
+}
+.bubble-container {
+  width: 80px;
+}
+.steps-container {
+  width: calc(100% - 80px);
+}
+
 .stepper-progress {
   height: 3px;
   z-index: -1;
@@ -135,7 +144,10 @@ export default {
 
 .stepper-item-title {
   font-size: 14px;
-  bottom: -24px;
+  /* bottom: -24px; */
+  left: 90px;
+  width: 50px;
+  margin-top: 30px;
 }
 
 .stepper-item.success {
