@@ -13,6 +13,6 @@ export default {
     data() {
         return {
         };
-    }
+    }asdfasdf
 }
 </script>
