@@ -17,7 +17,7 @@ export default {
         return {
             selectedOpponent: "",
         }
-    },
+    }, ///fsdafasdf
     methods:{
         SelectOpponent(){
             console.log(this.selectedOpponent)
