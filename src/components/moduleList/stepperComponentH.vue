@@ -13,9 +13,9 @@
             justify-content-between
             align-items-center
             mb-4
-          "
+          " 
         >
-          <!-- Progress bar -->
+          <!-- Progress bar asdfasdfasdfasdfasdfasdf->
           <div class="stepper-progress position-absolute bg-secondary">
             <div
               class="stepper-progress-bar position-absolute bg-success"
